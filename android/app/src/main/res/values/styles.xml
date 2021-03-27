@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppThemeMine" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="background">@color/colorPrimary</item>
+        <item name="colorBackgroundFloating">@color/black</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/primary_custom</item>
+
+        <!-- Dialog Theming attributes -->
+        <item name="md_color_title">@color/white</item>
+        <item name="md_color_content">@color/white</item>
+        <item name="md_corner_radius">16dp</item>
+        <item name="md_font_title">@font/raleway_bold</item>
+        <item name="md_font_button">@font/raleway_semibold</item>
+        <item name="md_color_button_text">@color/primary_custom</item>
+
+        <item name="android:windowBackground">@color/black</item>
+        <item name="md_background_color">#212121</item>
+    </style>
+
+    <style name="AuthTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="materialButtonStyle">@style/AppButton</item>
+    </style>
+
+    <style name="AppButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorAccent</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowBackground">@drawable/launch_background</item>
+
+        <item name="background">@color/colorPrimary</item>
+        <item name="colorBackgroundFloating">@color/black</item>
+
+        <item name="colorPrimary">@color/cardBackground</item>
+        <item name="colorPrimaryDark">@color/cardBackground</item>
+        <item name="colorAccent">@color/primary_custom</item>
+        <!-- Dialog Theming attributes -->
+        <item name="md_color_title">@color/white</item>
+        <item name="md_color_content">@color/white</item>
+        <item name="md_corner_radius">16dp</item>
+        <item name="md_font_title">@font/raleway_bold</item>
+        <item name="md_font_button">@font/raleway_semibold</item>
+        <item name="md_color_button_text">@color/primary_custom</item>
+        <item name="md_color_widget_unchecked">@color/green_diff</item>
+        <item name="md_color_widget">@color/red</item>
+
+        <item name="md_background_color">#212121</item>
+    </style>
+
+</resources>

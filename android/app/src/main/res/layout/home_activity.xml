@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:background="@color/light_black"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/faqButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_question_30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_margin="-5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/chooseHospitalButton"
+            android:layout_toEndOf="@id/faqButton"
+            android:textColor="@color/white"
+            android:text="@string/app_name"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:textSize="@dimen/_24sdp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/chooseHospitalButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_choose_30dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:layout_margin="-5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"  />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_below="@id/topBar"
+        app:srcCompat="@drawable/ic_angel_170dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="170dp"
+        android:layout_height="170dp"/>
+
+    <TextView
+        android:id="@+id/updatesTextView"
+        android:layout_below="@id/imageView"
+        android:text="@string/covid_19_updates"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:marqueeRepeatLimit ="marquee_forever"
+        android:padding="5dp"
+        android:background="@drawable/circularbordersolid"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textSize="@dimen/_18sdp"
+        android:textColor="@color/red"
+        android:scrollHorizontally="true"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"/>
+
+    <TextView
+        android:id="@+id/lastUpdatedAt"
+        android:layout_below="@id/updatesTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/start_maintaining_your_medical_records"
+        android:visibility="gone"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textColor="@color/light_blue"
+        android:textSize="@dimen/_12sdp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_below="@id/lastUpdatedAt"
+        android:layout_above="@id/bottomnavview"
+        android:layout_centerInParent="true"/>
+
+    <RelativeLayout
+        android:id="@+id/startRel"
+        android:layout_below="@id/lastUpdatedAt"
+        android:layout_above="@id/bottomnavview"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/startCard"
+            android:layout_centerInParent="true"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:cardBackgroundColor="@color/cardBackground"
+            app:cardCornerRadius="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/t1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/register_to"
+                    android:textColor="@color/yellow"
+                    android:textSize="21sp" />
+
+                <ImageView
+                    android:id="@+id/registerTo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="40dp"
+                    app:srcCompat="@drawable/ic_checklist_24dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridView"
+        android:layout_below="@id/lastUpdatedAt"
+        android:layout_above="@id/bottomnavview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:padding="10dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="8dp"
+        android:paddingRight="8dp"
+        app:alignmentMode="alignMargins"
+        app:columnCount="2"
+        app:rowCount="2">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="@color/cardBackground"
+            app:cardCornerRadius="8dp"
+            app:layout_row="0"
+            app:layout_column="0"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/roomDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/general_details"
+                    android:gravity="center"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/_16sdp" />
+
+                <ImageView
+                    android:id="@+id/generalDetailsButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/ic_bed_24dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@color/cardBackground"
+            app:cardCornerRadius="8dp"
+            app:layout_row="0"
+            app:layout_column="1"
+            app:layout_rowWeight="1"
+            app:layout_columnWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nextTask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:text="@string/medical_records"
+                    android:gravity="center"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/_16sdp" />
+
+                <ImageView
+                    android:id="@+id/medicalRecordsButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/ic_task_24dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/medicinesCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:cardBackgroundColor="@color/cardBackground"
+            app:cardCornerRadius="8dp"
+            app:layout_row="1"
+            app:layout_column="0"
+            app:layout_rowWeight="1"
+            app:layout_columnWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/medicinesText"
+                    android:text="@string/medicines"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/pink"
+                    android:textSize="@dimen/_16sdp"/>
+
+                <ImageView
+                    android:id="@+id/medicinesButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/ic_drug_24dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/helpCard"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="@color/cardBackground"
+            app:cardCornerRadius="8dp"
+            app:layout_row="1"
+            app:layout_column="1"
+            app:layout_rowWeight="1"
+            app:layout_columnWeight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/assistanceText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/assistance"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="@color/green_diff"
+                    android:textSize="@dimen/_16sdp"/>
+
+                <ImageView
+                    android:id="@+id/assistanceButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    app:srcCompat="@drawable/ic_nurse_24dp"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </androidx.gridlayout.widget.GridLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_black"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom"/>
+
+</RelativeLayout>

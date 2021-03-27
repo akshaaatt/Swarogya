@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/titleIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_back_30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_margin="-5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medical_records"
+            android:layout_toStartOf="@id/endIcon"
+            android:layout_toEndOf="@id/titleIcon"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:textSize="@dimen/_24sdp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/endIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_first_aid_kit_30dp"
+            android:layout_marginEnd="10dp"
+            android:padding="5dp"
+            android:layout_margin="-5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topBar"
+        android:layout_above="@id/updateText"
+        android:layout_marginTop="15dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animation_view"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/medical" />
+
+            <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialBPHighTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_hypertension_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/bpHighText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/bp_high"
+                        android:maxLines="1"
+                        android:inputType="numberDecimal|numberSigned"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialBPLowTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_patient_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/bpLowText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/bp_low"
+                        android:inputType="numberDecimal|numberSigned"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+            <com.swarogya.app.utils.MaterialTextField
+                android:layout_gravity="center"
+                android:id="@+id/materialPulseTextView"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:mtf_backgroundColor="@color/blue"
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_hasFocus="false"
+                app:mtf_image="@drawable/ic_heart_24dp"
+                app:mtf_labelColor="@color/light_blue"
+                app:mtf_openKeyboardOnFocus="true">
+
+                <EditText
+                    android:textSize="@dimen/_14sdp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
+                    android:id="@+id/pulseText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pulse_per_minute"
+                    android:inputType="numberDecimal|numberSigned"/>
+
+            </com.swarogya.app.utils.MaterialTextField>
+
+            <com.swarogya.app.utils.MaterialTextField
+                android:layout_gravity="center"
+                android:id="@+id/materialOxygenTextView"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:mtf_backgroundColor="@color/blue"
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_hasFocus="false"
+                app:mtf_image="@drawable/ic_underwater_24dp"
+                app:mtf_labelColor="@color/light_blue"
+                app:mtf_openKeyboardOnFocus="true">
+
+                <EditText
+                    android:textSize="@dimen/_14sdp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
+                    android:id="@+id/oxygenText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/oxygen"
+                    android:inputType="numberDecimal|numberSigned"/>
+
+            </com.swarogya.app.utils.MaterialTextField>
+
+            <com.swarogya.app.utils.MaterialTextField
+                android:layout_gravity="center"
+                android:id="@+id/materialTemperatureTextView"
+                android:padding="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:mtf_backgroundColor="@color/blue"
+                app:mtf_cardCollapsedHeight="4dp"
+                app:mtf_hasFocus="false"
+                app:mtf_image="@drawable/ic_cold_24dp"
+                app:mtf_labelColor="@color/light_blue"
+                app:mtf_openKeyboardOnFocus="true">
+
+                <EditText
+                    android:textSize="@dimen/_14sdp"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
+                    android:id="@+id/temperatureText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/temperature"
+                    android:inputType="numberDecimal|numberSigned"/>
+
+            </com.swarogya.app.utils.MaterialTextField>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/updateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp"
+        android:text="@string/update"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:elegantTextHeight="true"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerInParent="true"
+        style="@style/Widget.AppCompat.ProgressBar"/>
+
+</RelativeLayout>

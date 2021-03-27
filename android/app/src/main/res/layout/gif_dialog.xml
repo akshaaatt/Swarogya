@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:cardBackgroundColor="@android:color/black"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="@dimen/_13sdp"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout android:id="@+id/relativelayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:id="@+id/gifImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_118sdp"
+                    android:scaleType="centerCrop"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relativelayout1">
+
+                <RelativeLayout
+                    android:padding="@dimen/_15sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="#ffffff"
+                        android:gravity="center"
+                        android:id="@+id/title"
+                        android:paddingLeft="@dimen/_14sdp"
+                        android:paddingRight="@dimen/_14sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"/>
+
+                    <TextView
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/blue_diff"
+                        android:gravity="center"
+                        android:id="@+id/message"
+                        android:paddingLeft="@dimen/_14sdp"
+                        android:paddingRight="@dimen/_14sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_14sdp"
+                        android:layout_below="@+id/title"
+                        android:textAlignment="center"/>
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_27sdp"
+                        android:weightSum="100"
+                        android:layout_below="@+id/message">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:textColor="#ffffff"
+                            android:id="@+id/negativeBtn"
+                            android:background="@drawable/curved_shape2"
+                            android:visibility="gone"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_13sdp"
+                            android:text="@string/cancel"
+                            android:layout_weight="50"
+                            android:textAllCaps="false"/>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:textColor="@color/white"
+                            android:id="@+id/positiveBtn"
+                            android:background="@drawable/curved_shape"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="50"
+                            android:textAllCaps="false"/>
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </ScrollView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

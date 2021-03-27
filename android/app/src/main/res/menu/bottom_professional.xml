@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:icon="@drawable/ic_files_and_folders_24dp"
+        android:id="@+id/bottom_add_docs"
+        android:title="@string/add_documents"/>
+
+    <item
+        android:icon="@drawable/ic_pills_24p"
+        android:id="@+id/bottom_update_medicines"
+        android:title="@string/update_medicines"/>
+
+    <item
+        android:icon="@drawable/ic_task_24dp"
+        android:id="@+id/bottom_add_medical_records"
+        android:title="@string/add_medical_records"/>
+</menu>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#161625</color>
+    <color name="colorPrimaryDark">#161625</color>
+    <color name="colorAccent">@color/primaryDark_custom</color>
+
+    <color name="cardBackground">#1D1D2F</color>
+    <color name="green">#7EC544</color>
+    <color name="yellow">#FBC233</color>
+    <color name="red">#F6404F</color>
+    <color name="blue">#001c52</color>
+    <color name="light_blue">#03DAC5</color>
+    <color name="pink">#F375B5</color>
+    <color name="orange">#FF7100</color>
+    <color name="blue_diff">#007afe</color>
+    <color name="green_diff">#08a045</color>
+    <color name="gray">#c4c4c4</color>
+    <color name="black">#000000</color>
+    <color name="light_black">#1A1A1A</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="primary_custom">#607D8B</color>
+    <color name="primaryDark_custom">#546E7A</color>
+    <color name="accent_custom">#388E3C</color>
+
+</resources>

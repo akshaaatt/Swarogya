@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mtf_cardHeight_initial">4dp</dimen>
+    <dimen name="mtf_cardHeight_final">55dp</dimen>
+    <dimen name="mtf_corner_radius">8dp</dimen>
+    <dimen name="custom_image_chats">45dp</dimen>
+
+</resources>

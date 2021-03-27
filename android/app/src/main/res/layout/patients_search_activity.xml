@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:iconifiedByDefault="false"
+        android:focusable="false"
+        android:background="@color/light_black"
+        android:focusableInTouchMode="true"
+        app:searchIcon="@drawable/ic_baseline_search_white_24dp"
+        app:queryHint="Search Patients"
+        app:queryBackground="@color/transparent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchView"
+        android:indeterminate="true"
+        android:layout_marginTop="-7dp"
+        android:layout_marginBottom="-7dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_below="@id/progressBar"
+        android:layout_above="@id/bottomnavview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavview"
+        android:background="@color/light_black"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        app:itemTextColor="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_home_professional"/>
+
+</RelativeLayout>

@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">Swarogya</string>
+
+    //Google
+    <string name="ad_id">ca-app-pub-9621715580326439~3511568747</string>
+    <string name="ad_unit_id">ca-app-pub-9621715580326439/3647300111</string>
+
+    <string name="select">Select</string>
+    <string name="cancel">Cancel</string>
+    <string name="emergency">Emergency</string>
+    <string name="type">Type</string>
+    <string name="home">Home</string>
+    <string name="scan">Scan</string>
+    <string name="register">Register</string>
+    <string name="profile">Profile</string>
+    <string name="update">Update</string>
+    <string name="choose">Choose</string>
+    <string name="proceed">Proceed</string>
+    <string name="accept">Accept</string>
+    <string name="continue_as">Continue as</string>
+    <string name="currentPatientId">currentPatientId</string>
+    <string name="professionalId">professionalId</string>
+    <string name="professionalHospitalName">professionalHospitalName</string>
+    <string name="professionalName">professionalName</string>
+    <string name="no_prescribed_medicines">No prescribed medicines</string>
+    <string name="send_alert">Send Alert</string>
+    <string name="no_report_tasks_assigned">No report tasks assigned</string>
+    <string name="recordsLastUpdate">"Medical records last update: %1$s"</string>
+
+    <string name="faq_data">"It is our responsibility to support each other in this war against coronavirus. An efficient management system is the only thing that can help us curb this. So let us all play our part in this battle!\n\nRegister to your respective hospital. After that you will get insights to your treatment details and timely notifications with updates.\n\nOnce done with that, you will get timely notifications and can easily keep a track of your health conditions and get assistance whenever you need to."</string>
+    <string name="medical_records">Medical Records</string>
+    <string name="bp_high">BP-High in mmHg</string>
+    <string name="bp_low">BP-Low in mmHg</string>
+    <string name="oxygen">Oxygen-Level</string>
+    <string name="pulse_per_minute">Pulse per minute</string>
+    <string name="temperature">Temperature in Fahrenheit</string>
+    <string name="register_to">Register to a Hospital</string>
+    <string name="name_of_the_contact">Name of the Contact</string>
+    <string name="second_emergency_contact_number">Second Emergency Contact Number</string>
+    <string name="first_emergency_contact_number">First Emergency Contact Number</string>
+    <string name="email">Email</string>
+    <string name="residential_address">Residential Address</string>
+    <string name="full_name">Full Name</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="selfie">Selfie</string>
+    <string name="gender">Gender</string>
+    <string name="registration">Registration</string>
+    <string name="documents">Documents</string>
+    <string name="images">Images</string>
+    <string name="selected_image">Selected Image</string>
+    <string name="please_wait">Please wait.\n\nThis might take long.</string>
+    <string name="do_not">Do not close or perform anything!</string>
+
+    <string name="docs_instructions">Please add all the necessary documents as requested by the Hospital according to their needs like an identity proof, test reports, etc.\n\nClick on Add document, put a name to it and add all the pages to it. Finally, once you have added all the documents, you will get an option to scan the barcode as provided by the staff.\n\nWe advice you to proceed only after showing the staff member the documents that you have added here.</string>
+    <string name="add_images">Click on Add Image to take an image of the document one by one.\nEvery side of a page is clicked, counting it as a single image.\n\nAfter you are done, click on Done to redirect back to the documents page.\nYou can add more documents by again clicking on the add document button there.\n\nHold an image to delete once you add.</string>
+    <string name="add_medical_records">Add Medical Records</string>
+    <string name="add_document">Add Document</string>
+    <string name="add_documents">Add Documents</string>
+    <string name="add_image">Add Image</string>
+    <string name="set_name">Set Name</string>
+    <string name="done">Done</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="update_medicines">Update Medicines</string>
+    <string name="otherwise">Update the records database of the selected patient by clicking on Add Document to set a name to it and open a page where you can add the corresponding images to it.\n\nPlease make sure that you keep your app on after clicking proceed because it will update in the background.\n\nHold on any document made to get the option to delete it in case added.</string>
+    <string name="medicines">Medicines</string>
+    <string name="general_details">General Details</string>
+    <string name="assistance">Assistance</string>
+    <string name="covid_19_updates">Covid-19 UPDATES</string>
+    <string name="start_maintaining_your_medical_records">Start maintaining your medical records!</string>
+    <string name="message">Swarogya has been made and managed by Indians. It secures your data preciously and helps you get recovered from your ailment in the best way possible!\n\nThis has been developed by\nAkshat Tiwari and Kuhoo Tiwari.</string>
+    <string name="update_patient_medicines">Update the patient medicines?</string>
+    <string name="thank_you_for_your_service">Thank you for your service!</string>
+    <string name="scan_patient">Scan Patient</string>
+    <string name="patients">Patients</string>
+    <string name="homecare">Home care</string>
+    <string name="currentSlot">currentSlot</string>
+    <string name="home_care">Home Care</string>
+    <string name="multiple_treatments_message">Once you are registered to more than one treatments, you can smoothly select the desired session and get updated efficiently.</string>
+    <string name="slogan">Health Management</string>
+    <string name="lastDate">lastDate</string>
+
+</resources>

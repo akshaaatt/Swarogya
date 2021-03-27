@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.swarogya.app">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/AppThemeMine"
+        android:name="androidx.multidex.MultiDexApplication"
+        android:windowSoftInputMode="adjustPan">
+
+        <activity android:name="com.swarogya.app.utils.SelectedImage"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.swarogya.app.register_patient.DocumentImages"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.swarogya.app.register_patient.AddRequiredDocuments"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name="com.swarogya.app.home.MedicalRecordsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.swarogya.app.health_professional.ProfessionalViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.swarogya.app.health_professional.HomeHealthProfActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.swarogya.app.profile.ProfileUpdate"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.swarogya.app.profile.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.swarogya.app.home.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.swarogya.app.starting.Splash"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.swarogya.app.starting.RegistrationActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.swarogya.app.starting.SelfieCameraActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.swarogya.app.register_patient.BarcodeScannerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
+
+        <activity android:name="com.swarogya.app.register_patient.ImageCameraActivity"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name="com.swarogya.app.health_professional.ListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".health_professional.PatientsSearch"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/ad_id" />
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="barcode,face" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_round_local_hospital_24" />
+        <meta-data android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/blue_diff" />
+
+        <receiver android:name="com.swarogya.app.notifications.AlertReceiver" />
+    </application>
+
+</manifest>

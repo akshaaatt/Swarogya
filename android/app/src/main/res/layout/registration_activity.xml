@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/titleIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_name_30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_margin="-5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"/>
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registration"
+            android:layout_toStartOf="@id/endIcon"
+            android:layout_toEndOf="@id/titleIcon"
+            android:textColor="@color/white"
+            android:fontFamily="@font/proximanovaregular"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"
+            android:textSize="@dimen/_24sdp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/endIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            app:srcCompat="@drawable/ic_password_30dp"
+            android:padding="5dp"
+            android:layout_margin="-5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/topBar"
+        android:layout_above="@id/proceedText"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/yellow"
+                    android:id="@+id/genderGrid"
+                    android:padding="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/gender"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/l2" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:id="@+id/l2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true">
+
+                    <ImageView
+                        android:layout_gravity="center"
+                        android:id="@+id/faceRecognitionPic"
+                        android:layout_width="128dp"
+                        android:layout_height="128dp"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/ic_user"/>
+
+                    <TextView
+                        android:textSize="16sp"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:id="@+id/selfieText"
+                        android:padding="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/selfie"
+                        android:maxLines="1"
+                        android:textAlignment="center" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/yellow"
+                    android:id="@+id/dobText"
+                    android:padding="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/date_of_birth"
+                    android:layout_centerVertical="true"
+                    android:textAlignment="center"
+                    android:layout_toEndOf="@+id/l2"
+                    android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/yellow"
+                    android:id="@+id/bloodGroupList"
+                    android:padding="15dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/blood_group"
+                    android:textAlignment="center" />
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialNameTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_user_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/nameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/full_name"
+                        android:maxLines="1"
+                        android:inputType="textCapWords|textPersonName"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialAddressTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_address_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/addressText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/residential_address"
+                        android:inputType="textPostalAddress|textCapWords"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:id="@+id/materialEmailTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_mail_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/emailId"
+                        android:background="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email"
+                        android:maxLines="1"
+                        android:inputType="textEmailAddress"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialFirstEmergencyContactNumberTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_alert_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/firstEmergencyContactNumberText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/first_emergency_contact_number"
+                        android:maxLines="1"
+                        android:inputType="phone"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialFirstEmergencyContactNameTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_user_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/firstEmergencyContactNameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/name_of_the_contact"
+                        android:maxLines="1"
+                        android:inputType="textCapWords|textPersonName"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialSecondEmergencyContactNumberTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_alert_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/secondEmergencyContactNumberText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/second_emergency_contact_number"
+                        android:maxLines="1"
+                        android:inputType="phone"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+                <com.swarogya.app.utils.MaterialTextField
+                    android:layout_gravity="center"
+                    android:id="@+id/materialSecondEmergencyContactNameTextView"
+                    android:padding="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    app:mtf_backgroundColor="@color/blue"
+                    app:mtf_cardCollapsedHeight="4dp"
+                    app:mtf_hasFocus="false"
+                    app:mtf_image="@drawable/ic_user_24dp"
+                    app:mtf_labelColor="@color/light_blue"
+                    app:mtf_openKeyboardOnFocus="true">
+
+                    <EditText
+                        android:textSize="@dimen/_14sdp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        android:id="@+id/secondEmergencyContactNameText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/name_of_the_contact"
+                        android:maxLines="1"
+                        android:inputType="textCapWords|textPersonName"/>
+
+                </com.swarogya.app.utils.MaterialTextField>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/proceedText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp"
+        android:text="@string/proceed"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:elegantTextHeight="true"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerInParent="true"
+        style="@style/Widget.AppCompat.ProgressBar"/>
+
+</RelativeLayout>

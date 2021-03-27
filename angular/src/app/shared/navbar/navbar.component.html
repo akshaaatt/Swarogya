@@ -1,0 +1,33 @@
+<nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
+  <div class="container">
+    <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">Swarogya</a>
+    <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="navbar_global" [ngbCollapse]="isCollapsed">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a [routerLink]="['/home']">Swarogya</a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" (click)="isCollapsed = !isCollapsed"
+                  [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" href="https://github.com/akshaaatt/Swarogya-GDSC-Solution-Challenge-2021" target="_blank" data-toggle="tooltip" title="Star us on Github">
+            <i class="fa fa-github"></i>
+            <span class="nav-link-inner--text d-lg-none">Github</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

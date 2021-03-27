@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#1a1a1a"
+    tools:context=".health_professional.ListActivity">
+
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/titleIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_back_30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:padding="5dp"
+            android:layout_margin="-5dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medicines"
+            android:layout_toEndOf="@id/titleIcon"
+            android:layout_alignParentEnd="true"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/_24sdp"
+            android:textStyle="bold"/>
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:layout_above="@id/updateText"
+        android:paddingTop="10dp"
+        android:descendantFocusability="afterDescendants" />
+
+    <TextView
+        android:id="@+id/updateText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textAlignment="center"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp"
+        android:text="@string/update"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:elegantTextHeight="true"/>
+
+</RelativeLayout>
