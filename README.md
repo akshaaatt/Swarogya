@@ -17,4 +17,5 @@ $ env/scripts/activate  on windows
 (env) $ pip install -r requirements.txt
 (env) $ python manage.py migrate
 (env) $ python manage.py createsuperuser
-(env) $ python manage.py runserver```
+(env) $ python manage.py runserver
+```
