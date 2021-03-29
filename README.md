@@ -1,5 +1,5 @@
 # Swarogya-GDSC-Solution-Challenge-2021  
-# androidpp - https://play.google.com/store/apps/details?id=com.swarogya.app
+# androidapp - https://play.google.com/store/apps/details?id=com.swarogya.app
 # webportal - https://www.swarogya.com/
 ## Django App Installation Guide
 
