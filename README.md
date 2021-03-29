@@ -1,5 +1,6 @@
-# Swarogya-GDSC-Solution-Challenge-2021
-
+# Swarogya-GDSC-Solution-Challenge-2021  
+# androidpp - https://play.google.com/store/apps/details?id=com.swarogya.app
+# webportal - https://www.swarogya.com/
 ## Django App Installation Guide
 
 - First start with installing python on your pc.
