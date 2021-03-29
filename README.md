@@ -21,3 +21,11 @@ $ env/scripts/activate  on windows
 (env) $ python manage.py createsuperuser
 (env) $ python manage.py runserver
 ```
+## Datasets used for Machine Learning Models
+
+1. Blood Cell Images: https://www.kaggle.com/paultimothymooney/blood-cells
+2. Ocular Disease Recognition: https://www.kaggle.com/andrewmvd/ocular-disease-recognition-odir5k
+3. CoronaHack -Chest X-Ray-Dataset: https://www.kaggle.com/praveengovi/coronahack-chest-xraydataset
+4. Leukemia Classification: https://www.kaggle.com/andrewmvd/leukemia-classification
+5. Chest X-Ray Images (Pneumonia): https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia
+6. Head CT - hemorrhage: https://www.kaggle.com/felipekitamura/head-ct-hemorrhage
