@@ -21,7 +21,15 @@ $ env/scripts/activate  on windows
 (env) $ python manage.py createsuperuser
 (env) $ python manage.py runserver
 ```
+## Training the ML models
+
+- Folder Jupyter Notebooks contains all the .ipynb notebooks required for training the various ML models.
+- These ML models can be saved after training and used later.
+- The notebooks are Google Colab compatible and can be run directly via colab.
+
 ## Datasets used for Machine Learning Models
+
+The datasets used for training the ML models are taken from https://www.kaggle.com
 
 1. Blood Cell Images: https://www.kaggle.com/paultimothymooney/blood-cells
 2. Ocular Disease Recognition: https://www.kaggle.com/andrewmvd/ocular-disease-recognition-odir5k
