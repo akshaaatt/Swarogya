@@ -10,6 +10,7 @@
 1. firebase-sdk.json
 2. Swarogya-36675b238292.json
 3. config_file.json
+4. firebase-messaging-sw.js
 - Start the terminal in django directory and run commands in the following order.
 ```$ virtualenv env 
 $ source env/bin/activate on linux/mac
