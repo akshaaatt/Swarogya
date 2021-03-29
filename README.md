@@ -23,7 +23,7 @@ $ env/scripts/activate  on windows
 ```
 ## Training the ML models
 
-- Folder Jupyter Notebooks contains all the .ipynb notebooks required for training the various ML models.
+- Folder jupyter-notebooks contains all the .ipynb notebooks required for training the various ML models.
 - These ML models can be saved after training and used later.
 - The notebooks are Google Colab compatible and can be run directly via colab.
 
