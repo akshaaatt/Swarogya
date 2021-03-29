@@ -1,0 +1,416 @@
+{% extends 'dashboard_final/dashboard_edit.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+<div class="row">
+<div class="col-sm-8 col-sm offset-2">
+<form class="navbar-form" action="{% url 'swarogya_web:patient_analysis' %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="input-group no-border">
+    <input type="text" class="form-control" placeholder="Patient Search Using Patient ID..." id="searchPatient" name="searchPatient" required>
+    <button type="submit" class="btn btn-white btn-round btn-just-icon" id="search" name="search">
+      <i class="material-icons">search</i>
+      <div class="ripple-container"></div>
+    </button>
+  </div>
+</form>
+</div>
+</div>
+<div class="col-sm-10 col-sm offset-2">
+
+<div class="col-sm-10 col-sm offset-2">
+  Click to Scan Barcode<br>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" id="barcode_slider" name="barcode_slider" onclick="my_barcode()">Scan</button>
+</div>
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Barcode Scanning</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="my_barcode_set()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="barcode">
+         <video id="barcodevideo" autoplay></video>
+         <canvas id="barcodecanvasg"></canvas>
+        </div>
+        <canvas id="barcodecanvas"></canvas>
+        <div id="result"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="my_barcode_set()" id="use_barcode" name="use_barcode" data-dismiss="modal">Use the Barccode</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card card-nav-tabs card-plain">
+          <div class="card-header card-header-info">
+              <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+              <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                              <a class="nav-link active" href="#home" data-toggle="tab">Patient Details</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#updates" data-toggle="tab">Update Patient Details</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#history" data-toggle="tab">Patient Report</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <div class="card-body ">
+              <div class="tab-content text-center">
+                  <div class="tab-pane active" id="home" sytle="margin:5px 100px">
+                    <div class="card offset-1" style="width:50rem;">
+                      <div class="card-header card-header-primary">
+                        <h4 class="card-title">Patient Details</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="row">
+                        <div class="col-sm-20">
+                            <h4>
+                              <p class="serif">
+                                <pre class="tab">
+                                  <p style="text-align:left;">
+                    <b>Name :</b>{{name}}<br>
+                    <b>Patient ID :</b>{{patientId}}<br>
+                    <b>Phone Number :</b>{{phoneNumber}} <br>
+                    <b>Email ID:</b>{{emailId}}<br>
+                    <b>Address :</b>{{address}}<br>
+                    <b>Gender :</b>{{gender}}<br>
+                    <b>Blood Group: :</b>{{bloodGroup}}<br>
+                    <b>Date of Birth :</b>{{dob}}<br>
+                    <b>First Emergency Contact :</b>{{firstEmergencyContactName}}<br>
+                    <b>First Emergency Contact Number :</b>{{firstEmergencyContactNumber}}<br>
+                    <b>Second Emergency Contact :</b>{{secondEmergencyContactName}}<br>
+                    <b>Second Emergency Contact Number :</b>{{secondEmergencyContactNumber}}<br>
+                    <b>Hospital Name :</b>{{hospitalName}}<br>
+                    <b>Treatment Mode :</b>{{treatmentMode}}<br>
+                    {% if treatmentMode == 'Hospitalized' %}
+                    <b>Wing Number :</b>{{wingNumber}}<br>
+                    <b>Floor Number :</b>{{floorNumber}}<br>
+                    <b>Room Number:</b>{{roomNumber}}<br>
+                    <b>Bed Number :</b>{{bedNumber}}<br>
+                    {% endif %}
+
+                    Documents :
+                    {% for keys, values in documents.items %}
+                    <button class="btn btn-primary pull-right" id="{{keys}}_option" name="{{keys}}_option">{{keys}}</button>
+                        {% for key,value in values.items %}
+                            <button onclick='location.href="{{value}}"' target="_blank" class="btn btn-primary pull-right" id="{{key}}_option" name="{{key}}_option">Document {{key}}</button>
+                        {% endfor %}
+                    {% endfor %}
+                    </p>
+                    </pre>
+                            </h4>
+                          </div>
+                      </div>
+                  </div>
+                  </div>
+                  </div>
+                    <div class="tab-pane" id="updates">
+                      <div class="card" style="width:59rem;">
+                        <div class="card-header card-header-primary">
+                          <h4 class="card-title">Update Patient Details</h4>
+                        </div>
+                        <div class="card-body">
+                          <form action="{% url 'swarogya_web:patient_analysis'%}"  method="post" enctype="multipart/form-data">
+                             {% csrf_token %}
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Name</label>
+                                  <input type="text" class="form-control" id="name" name="name" value="{{name}}" required>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Phone Number</label>
+                                  <input type="tel" class="form-control" id="phone_no" name="phone_no" value="{{phoneNumber}}"required>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Email address</label>
+                                  <input type="email" class="form-control" id='email_id' name="email_id"value="{{emailId}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Blood Group</label>
+                                  <input type="text" class="form-control" id="bloodGroup" name="bloodGroup"value="{{bloodGroup}}" required>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Gender</label>
+                                  <input type="text" class="form-control" id="gender" name="gender"value="{{gender}}" required>
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Date of Birth</label>
+                                  <input type="date" class="form-control" id="dob" name="dob"value="{{dob}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <div class="input-container">
+                                  <label class="bmd-label-floating">Patient ID</label>
+                                  <input type="text" class="form-control" id="barcodeid" name="barcodeid" value="{{patientId}}" required>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Hospital Name</label>
+                                  <input type="text" class="form-control" id='hospital_name' name="hospital_name"value="{{hospitalName}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">First Emergency Contact Name</label>
+                                  <input type="text" class="form-control" id="first_emergency_contact" name="first_emergency_contact"value="{{firstEmergencyContactName}}" required>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">First Emergency Contact Number</label>
+                                  <input type="tel" class="form-control" id="first_emergency_contact_number" name="first_emergency_contact_number"value="{{firstEmergencyContactNumber}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Second Emergency Contact Name</label>
+                                  <input type="text" class="form-control" id="second_emergency_contact" name="second_emergency_contact"value="{{secondEmergencyContactName}}" required>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Second Emergency Contact Number</label>
+                                  <input type="tel" class="form-control" id="second_emergency_contact_number" name="second_emergency_contact_number"value="{{secondEmergencyContactNumber}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Adress</label>
+                                  <input type="text" class="form-control" id="address" name="address"value="{{address}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Treatment Mode</label>
+                                  <input type="text" class="form-control" id="treatmentMode" name="treatmentMode"value="{{treatmentMode}}" required>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            {% if treatmentMode == 'Hospitalized' %}
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Wing Number</label>
+                                  <input type="number" class="form-control" id="wing_no" name="wing_no"value="{{wingNumber}}" required>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Floor Number</label>
+                                  <input type="number" class="form-control" id="floor_no" name="floor_no"value="{{floorNumber}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Room Number</label>
+                                  <input type="number" class="form-control" id="room_no" name="room_no"value="{{roomNumber}}" required>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating">Bed Number</label>
+                                  <input type="number" class="form-control" id="bed_no" name="bed_no"value="{{bedNumber}}" required>
+                                </div>
+                              </div>
+                            </div>
+                            {% endif %}
+
+                            <button type="submit" class="btn btn-primary pull-right" id="updatePatient" name="updatePatient">Update Patient Details</button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  <div class="tab-pane" id="history">
+                    <div class="tab-pane active" id="home" sytle="margin:10px 200px">
+                      <div class="card" style="width:59rem;">
+                        <div class="card-header card-header-primary">
+                          <h4 class="card-title">Patient Report</h4>
+                        </div>
+                        <div class="card-body">
+                          <form action="{% url 'swarogya_web:patient_analysis' %}"  method="post" enctype="multipart/form-data">
+                            	{% csrf_token %}
+
+
+                                <div class="form-group">
+                                  <div class="input-container">
+                                  <label class="bmd-label-floating">Patient ID</label>
+                                  <input type="text" class="form-control" id="barcodeid" name="barcodeid" value="{{patientId}}" required>
+                                </div>
+                                </div>
+
+
+                            <button type="submit" class="btn btn-primary pull-right" id="generate_report" name="generate_report">Generate Reoprt</button>
+
+                          </form>
+                          {% if context %}
+                          <br>
+                          {{context}}
+                          <br>
+                          <button class="btn btn-primary pull-right" onclick="open_excel()" id="report" name="report">Reoprt</button>
+                          {% endif %}
+                        </div>
+                      </div>
+                      </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <script type="text/javascript">
+
+      var sound = new Audio("{% static 'barcode2/barcode.wav' %}");
+
+      function my_barcode(){
+        barcode.config.start = 0.1;
+        barcode.config.end = 0.9;
+        barcode.config.video = '#barcodevideo';
+        barcode.config.canvas = '#barcodecanvas';
+        barcode.config.canvasg = '#barcodecanvasg';
+        barcode.setHandler(function(barcode) {
+          $('#result').html(barcode);
+          document.getElementById('searchPatient').value = document.getElementById('result').innerText;
+          });
+        barcode.init();
+        $('#result').bind('DOMSubtreeModified', function(e) {
+          sound.play();
+        });
+      }
+      function my_barcode_set(){
+        barcode.stop_barcode();
+        var x = document.getElementById("exampleModal");
+        x.close();
+      }
+      </script>
+
+      <script type="text/javascript">
+        if("{{to_alert}}"){
+            alert("{{to_alert}}");
+        }
+
+        function open_excel(){
+          window.open("/media/report.xlsx");
+        }
+
+      </script>
+
+      <script type="text/javascript">
+        function myOpenFunction(){
+          document.getElementById("patient_analysis_nav").className = "nav-item active";
+        }
+
+      </script>
+
+
+{% endblock %}

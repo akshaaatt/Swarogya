@@ -1,0 +1,195 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta content='width=device-width,initial-scale=1.0' name='viewport' />
+  <title>Swarogya</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link href="{% static 'front/css/bootstrap.min.css' %}" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
+    <link href="{% static 'front/fontawesome/css/all.min.css' %}" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
+    <link href="{% static 'front/css/templatemo-diagoona.css' %}" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+  .nav-item {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+
+  .nav-item .tooltiptext{
+    visibility: hidden;
+    width: 310%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 2px 0;
+    font-size: 20px;
+
+    /* Position the nav-link */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  .nav-item:hover .tooltiptext{
+    visibility: visible;
+  }
+
+
+</style>
+</head>
+
+<body>
+    <div class="tm-container">
+      <div class="tm-bg">
+          <div class="tm-bg-left"></div>
+          <div class="tm-bg-right"></div>
+      </div>
+
+          <div class="container ">
+
+
+                                 <div class="tm-row pt-4">
+                                     <div class="tm-col-left">
+                                         <div class="tm-site-header media">
+
+                                             <div class="media-body">
+
+
+                                                 <div class="logo-container">
+               <div class="logo"><div class="row">
+                   <img src="{% static 'img/circle-cropped.png' %}" width="20%" height="20%"><h1 class="tm-sitename text-uppercase" style="text-shadow: 2px 2px 4px #000000;">Swarogya</h1>
+                   <br>
+               </div>
+            </div>
+
+                                             </div>
+                                         </div>
+                                     </div>
+                                      </div>
+
+                                     <div class="tm-col-right">
+                <nav class="navbar navbar-expand-lg" id="tm-main-nav" style="z-index: 1000;">
+                    <button class="navbar-toggler toggler-example mr-0 ml-auto" type="button"
+                        data-toggle="collapse" data-target="#navbar-nav"
+                        aria-controls="navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span><i class="fas fa-bars"></i></span>
+                    </button>
+                    <div class="collapse navbar-collapse tm-nav" id="navbar-nav" >
+                        <ul class="navbar-nav text-uppercase" >
+                          <li class="nav-item">
+                            <div class="tooltiptext">About</div>
+                            <a data-toggle="tab" href="#menu1"> <img src="{% static 'img/info.png' %}" alt="Hospital Registration" width="58" height="58" style="position: relative;bottom: 20%;margin-left: auto; "></a></li>
+                            <li class="nav-item">
+                              <div class="tooltiptext">Video</div>
+                              <a data-toggle="tab" href="#video"> <img src="{% static 'img/cinema.png' %}" alt="Hospital Registration" width="58" height="58" style="position: relative;bottom: 20%;margin-left: auto; "></a></li>
+                          <li class="nav-item"><div class="tooltiptext">Updates</div>
+                            <a data-toggle="tab" href="#menu2" onclick="my_click()"> <img src="{% static 'img/epidemic.png' %}" alt="Hospital Registration" width="58" height="58" style="position: relative;bottom: 20%;margin-right: auto;"></a></li>
+                          <li class="nav-item"><div class="tooltiptext">App Download</div>
+                            <a data-toggle="tab" href="#menu3"> <img src="{% static 'img/3d.png' %}" alt="Hospital Registration" width="58" height="58" style="position: relative;bottom: 20%;margin-left: auto; "></a></li>
+                          <li class="nav-item"><div class="tooltiptext">Hospital Registration</div>
+                            <a href="{% url 'swarogya_web:hospital_registration' %}"> <img src="{% static 'img/hospital.png' %}" alt="Hospital Registration" width="58" height="58" style="position: relative;bottom: 20%;margin-left: auto; "></a></li>
+                          <li class="nav-item"><div class="tooltiptext">Hospital Admin Login</div>
+                            <a href="{% url 'swarogya_web:hospital_login' %}"> <img src="{% static 'img/nurse.png' %}" alt="Hospital Registration" width="58" height="58" style="position: relative;bottom: 20%;margin-left: auto; "></a></li>
+                          <li class="nav-item"><div class="tooltiptext">Health Professional Login</div>
+                            <a href="{% url 'swarogya_web:staff_login' %}"> <img src="{% static 'img/password.png' %}" alt="Hospital Registration" width="58" height="58" style="position: relative;bottom: 20%;margin-left: auto; "></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <br>
+            </div>
+
+                                 </div>
+
+                                 <div class="tab-content">
+
+                                   <div id="video" class="tab-pane ">
+                                     <br>
+                                           <iframe width="80%" height="400" style="position: absolute; left: 10%" src="https://www.youtube-nocookie.com/embed/2Zni-w8SQ_s"allowfullscreen>
+                                           </iframe>
+                                     </div>
+
+                                   <div id="menu1" class="tab-pane active">
+                                     <br>
+                                             <section class="tm-content"  style="color:white;border: none;background-color:#00264d;padding: 12px 30px;cursor: pointer;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);margin:0px 0px;">
+                                                 <h1 class="mb-5 tm-content-title" style="text-align: center;">About<br><br><img src="{% static 'img/iot.jpg' %}" width="40%" height="40%"></h1>
+
+                                                 <p class="mb-5">Swarogya interfaces a smartphone application to a web based application that is handled by health professionals of hospitals.
+                                                   Patients can easily add their respective information, documents and measurement records to the app which is stored in a common database and is used by the hospitals to intelligently manage their patients.
+                                                   It also provides the patients with real time updates as prescribed by their health professionals.</p>
+                                             </section>
+
+                                     </div>
+
+
+                                   <div id="menu2" class="tab-pane ">
+                                     <div class="tm-row">
+                                        <br>
+                                            <section class="tm-content"  style="color:white;border: none;background-color:#00264d;padding: 12px 30px;cursor: pointer;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);margin:0px 0px;">
+                                               <h1 class="mb-5 tm-content-title " style="text-align: center;">Covid-19 Updates</h1>
+                                               <p class="mb-5" id="covid"></p>
+                                            </section>
+
+                                   </div>
+                                 </div>
+
+                                 <div id="menu3" class="tab-pane">
+                                   <div  class="tm-row">
+                                            <br>
+                                            <section class="tm-content" style="color:white;border: none;background-color:#00264d;padding: 12px 30px;cursor: pointer;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);margin:0px 0px;">
+                                                <h1 class="mb-5 tm-content-title" style="text-align: center;">App Download</h1>
+                                                <p class="mb-5">The Mobile App can be used by Patients and Doctors.<br>   Download from Playstore Now<br>
+
+                                                   <button class="btn" onclick='location.href="https://play.google.com/store/apps/details?id=com.swarogya.app"' target="_blank" style="background-color: DodgerBlue;border: none;color: white; padding: 12px 30px;cursor: pointer;font-size: 20px;position: relative;"><i class="fa fa-download"></i> Download</button>
+<br>
+                                                </p>
+ </section>
+
+                                    </div>
+                              </div>
+                            </div>
+    </div></div></div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="{% static 'front/js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'front/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'front/js/jquery.backstretch.min.js' %}"></script>
+    <script src="{% static 'front/js/templatemo-script.js' %}"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/TweenLite.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/499416/EasePack.min.js"></script>
+
+    <script>
+    function my_click(){
+      $.ajax({
+          url: "https://api.covid19india.org/data.json",
+          dataType: 'json',
+          success: function (data) {
+              var covid =  document.getElementById('covid');
+            covid.innerHTML =  "Total Confirmed Cases : " + data["statewise"][0]["confirmed"]+"<br>";
+            covid.innerHTML +=  "New Confirmed Cases : " + data["statewise"][0]["deltaconfirmed"]+ "<br>";
+            covid.innerHTML +=  "Total Active Cases : " + data["statewise"][0]["active"]+ "<br>" ;
+            covid.innerHTML +=  "Total Recovered Cases : " + data["statewise"][0]["recovered"]+ "<br>" ;
+            covid.innerHTML +=  "New Recovered Cases : " + data["statewise"][0]["deltarecovered"]+ "<br>";
+            covid.innerHTML +=  "Total Death : " + data["statewise"][0]["deaths"]+ "<br>" ;
+            covid.innerHTML +=  "New Deaths : " + data["statewise"][0]["deltadeaths"]+ "<br>";
+            covid.innerHTML +=  "Total Tests Done : " + data["tested"][data["tested"].length -1]["totalsamplestested"]+ "<br>" ;
+            covid.innerHTML +=  "New Tests Done : " + data["tested"][data["tested"].length -1]["samplereportedtoday"]+ "<br>" ;
+            covid.innerHTML +=  "Updated on : " + data["statewise"][0]["lastupdatedtime"];
+          }
+        });
+    }
+
+    </script>
+
+</body>
+</html>

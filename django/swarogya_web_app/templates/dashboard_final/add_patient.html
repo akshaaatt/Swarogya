@@ -1,0 +1,497 @@
+{% extends 'dashboard_final/dashboard_edit.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 17px;
+  width: 17px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="card card-nav-tabs card-plain">
+          <div class="card-header card-header-info">
+              <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+              <div class="nav-tabs-navigation">
+                  <div class="nav-tabs-wrapper">
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                          <li class="nav-item">
+                              <a class="nav-link active" href="#home" data-toggle="tab">Smart Patient</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#smart" data-toggle="tab">Home Care</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#updates" data-toggle="tab">Manual Patient</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#history" data-toggle="tab">Treated</a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div><div class="card-body ">
+
+            <div class="col-sm-10 col-sm offset-4">
+
+            <div class="col-sm-10 col-sm offset-2">
+              Click to Scan Barcode<br>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" id="barcode_slider" name="barcode_slider" onclick="my_barcode()">Scan</button>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Barcode Scanning</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="my_barcode_set()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div id="barcode">
+                     <video id="barcodevideo" autoplay></video>
+                     <canvas id="barcodecanvasg"></canvas>
+                    </div>
+                    <canvas id="barcodecanvas"></canvas>
+                    <div id="result"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="my_barcode_set()" id="use_barcode" name="use_barcode" data-dismiss="modal">Use the Barccode</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+              <div class="tab-content text-center">
+
+                  <div class="tab-pane active" id="home" sytle="margin:10px 200px">
+                    <div class="card" style="width:59rem;">
+                      <div class="card-header card-header-primary">
+                        <h4 class="card-title">Smart Patient Addition</h4>
+                      </div>
+                      <div class="card-body">
+
+                        <form action="{% url 'swarogya_web:add_patient' %}"  method="post" enctype="multipart/form-data">
+                          	{% csrf_token %}
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <div class="input-container">
+                                <label class="bmd-label-floating">Patient ID</label>
+                                <input type="text" class="form-control" id="barcodeid1" name="barcodeid1"  required>
+                              </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Hospital Name</label>
+                                <input type="text" class="form-control" id='hospital_name1' name="hospital_name1" value="{{hospitalName}}" disabled>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Wing Number</label>
+                                <input type="number" class="form-control" id="wing_no" name="wing_no" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Floor Number</label>
+                                <input type="number" class="form-control" id="floor_no" name="floor_no" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Room Number</label>
+                                <input type="number" class="form-control" id="room_no" name="room_no" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Bed Number</label>
+                                <input type="number" class="form-control" id="bed_no" name="bed_no" required>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-sm-15 col-sm offset-1">
+                          <div class="file-field">
+                            <label>(Optional)<br>
+                            <div class="btn btn-primary btn-sm float-left">
+                            Upload Documents in form of Document Name_Number(eg. Adhar_1, Adhar_2, etc.)<input type="file" id="uploaded_files" name="uploaded_files" pattern="[A-Za-z]+[_]+[0-9]+[.]+[A-Za-z]+" multiple>
+                            </div></label>
+                          </div>
+                          </div>
+                        </div>
+
+                          <button type="submit" class="btn btn-primary pull-right" id="smartPatient" name="smartPatient">Add Patient</button>
+                          <div class="clearfix"></div>
+                        </form>
+                      </div>
+                    </div>
+                    </div>
+                  <div class="tab-pane" id="updates">
+
+                    <div class="card" style="width:59rem;">
+                      <div class="card-header card-header-primary">
+                        <h4 class="card-title">Manual Patient Addition</h4>
+                      </div>
+                      <div class="card-body">
+
+                        <form action="{% url 'swarogya_web:add_patient' %}"  method="post" enctype="multipart/form-data">
+	                         {% csrf_token %}
+                          <div class="row">
+                            <div class="col-sm-10 col-sm offset-2">
+                          <div class="file-field">
+                            <div class="btn btn-primary btn-sm float-left">
+                              Upload Photo with Name_Number(eg. Adhar_1.jpeg)<input type="file" id="face_pic" name="face_pic" pattern="[A-Za-z]+[_]+[0-9]+[.]+[A-Za-z]+" required>
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                          <div class="row">
+
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone_no" name="phone_no" required>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Email address</label>
+                                <input type="email" class="form-control" id='email_id' name="email_id" required>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Blood Group</label>
+                                <input type="text" class="form-control" id="bloodGroup" name="bloodGroup" required>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Gender</label>
+                                <input type="text" class="form-control" id="gender" name="gender" required>
+                              </div>
+                            </div>
+                            <div class="col-md-4">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Date of Birth</label>
+                                <input type="date" class="form-control" id="dob" name="dob" required>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <div class="input-container">
+                                <label class="bmd-label-floating">Patient ID</label>
+                                <input type="text" class="form-control" id="barcodeid2" name="barcodeid2" required>
+                              </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Hospital Name</label>
+                                <input type="text" class="form-control" id='hospital_name2' name="hospital_name2" value="{{hospitalName}}" disabled>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">First Emergency Contact Name</label>
+                                <input type="text" class="form-control" id="first_emergency_contact" name="first_emergency_contact"value="{{firstEmergencyContactName}}" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">First Emergency Contact Number</label>
+                                <input type="tel" class="form-control" id="first_emergency_contact_number" name="first_emergency_contact_number"value="{{firstEmergencyContactNumber}}" required>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Second Emergency Contact Name</label>
+                                <input type="text" class="form-control" id="second_emergency_contact" name="second_emergency_contact"value="{{secondEmergencyContactName}}" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Second Emergency Contact Number</label>
+                                <input type="tel" class="form-control" id="second_emergency_contact_number" name="second_emergency_contact_number"value="{{secondEmergencyContactNumber}}" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Adress</label>
+                                <input type="text" class="form-control" id="address" name="address" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                <label for="treatment_mode" class="bmd-label-floating">Treatment Mode</label>
+                                <select id="treatment_mode" name="treatment_mode">
+                                  <option value="hospitalized">Hospitalized</option>
+                                  <option value="home_care">Home Care</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Wing Number</label>
+                                <input type="number" class="form-control" id="wing_no" name="wing_no" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Floor Number</label>
+                                <input type="number" class="form-control" id="floor_no" name="floor_no" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Room Number</label>
+                                <input type="number" class="form-control" id="room_no" name="room_no" required>
+                              </div>
+                            </div>
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label class="bmd-label-floating">Bed Number</label>
+                                <input type="number" class="form-control" id="bed_no" name="bed_no" required>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-sm-15 col-sm offset-1">
+                          <div class="file-field">
+                            <label>(Optional)<br>
+                            <div class="btn btn-primary btn-sm float-left">
+                            Upload Documents in form of Document Name_Number(eg. Adhar_1, Adhar_2, etc.)<input type="file" id="uploaded_files" name="uploaded_files" pattern="[A-Za-z]+[_]+[0-9]+[.]+[A-Za-z]+" multiple>
+                            </div></label>
+                          </div>
+                          </div>
+                        </div>
+                          <button type="submit" class="btn btn-primary pull-right" id="manualPatient" name="manualPatient">Add Patient</button>
+                          <div class="clearfix"></div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="history">
+                    <div class="tab-pane active" id="home" sytle="margin:10px 200px">
+                      <div class="card" style="width:59rem;">
+                        <div class="card-header card-header-primary">
+                          <h4 class="card-title">Remove Treated Patient</h4>
+                        </div>
+                        <div class="card-body">
+
+                          <form action="{% url 'swarogya_web:add_patient' %}" method="post" enctype="multipart/form-data">
+                            	{% csrf_token %}
+                            <div class="row">
+                              <div class="col-sm-4 col-sm offset-4">
+                                <div class="form-group">
+                                  <label class="bmd-label-floating" style="text-align:center;">Patient ID</label>
+                                  <input type="text" class="form-control" id="barcodeid3" name="barcodeid3" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status" class="bmd-label-floating" style="text-align:center;">Status</label>
+                                  <select id="status" name="status">
+                                    <option value="cured">Cured</option>
+                                    <option value="death">Death</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary pull-right" id="patient_treated" name="patient_treated">Submit</button>
+                            <div class="clearfix"></div>
+                          </form>
+                        </div>
+                      </div>
+                      </div>
+              </div>
+
+              <div class="tab-pane" id="smart">
+                <div class="tab-pane active" id="home" sytle="margin:10px 200px">
+                  <div class="card" style="width:59rem;">
+                    <div class="card-header card-header-primary">
+                      <h4 class="card-title">Home Care</h4>
+                    </div>
+                    <div class="card-body">
+                      <form action="{% url 'swarogya_web:add_patient' %}" method="post" enctype="multipart/form-data">
+                          {% csrf_token %}
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <div class="input-container">
+                          <label class="bmd-label-floating">Patient ID</label>
+                          <input type="text" class="form-control" id="barcodeid4" name="barcodeid4" required>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Hospital Name</label>
+                          <input type="text" class="form-control" id='hospital_name2' name="hospital_name2" value="{{hospitalName}}" disabled>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-15 col-sm offset-1">
+                    <div class="file-field">
+                      <label>(Optional)<br>
+                      <div class="btn btn-primary btn-sm float-left">
+                      Upload Documents in form of Document Name_Number(eg. Adhar_1, Adhar_2, etc.)<input type="file" id="uploaded_files" name="uploaded_files" pattern="[A-Za-z]+[_]+[0-9]+[.]+[A-Za-z]+" multiple>
+                      </div></label>
+                    </div>
+                    </div>
+                  </div>
+                    <button type="submit" class="btn btn-primary pull-right" id="home_quarantine" name="home_quarantine">Submit</button>
+                    </form>
+                    </div>
+                  </div>
+                  </div>
+          </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <script type="text/javascript">
+
+      var sound = new Audio("{% static 'barcode2/barcode.wav' %}");
+
+      function my_barcode(){
+        barcode.config.start = 0.1;
+        barcode.config.end = 0.9;
+        barcode.config.video = '#barcodevideo';
+        barcode.config.canvas = '#barcodecanvas';
+        barcode.config.canvasg = '#barcodecanvasg';
+        barcode.setHandler(function(barcode) {
+          $('#result').html(barcode);
+          document.getElementById('barcodeid1').value = document.getElementById('result').innerText;
+          document.getElementById('barcodeid2').value = document.getElementById('result').innerText;
+          document.getElementById('barcodeid3').value = document.getElementById('result').innerText;
+          document.getElementById('barcodeid4').value = document.getElementById('result').innerText;
+          });
+        barcode.init();
+        $('#result').bind('DOMSubtreeModified', function(e) {
+          sound.play();
+        });
+      }
+      function my_barcode_set(){
+        barcode.stop_barcode();
+        var x = document.getElementById("exampleModal");
+        x.close();
+      }
+      </script>
+      <script >
+        document.getElementById('hospital_name1').innerText = window.localStorage.getItem('hospitalName');
+        document.getElementById('hospital_name2').innerText = window.localStorage.getItem('hospitalName');
+        if("{{to_alert}}"){
+            alert("{{to_alert}}")
+        }
+
+      </script>
+      <script type="text/javascript">
+        function myOpenFunction(){
+          document.getElementById("add_patient_nav").className = "nav-item active";
+        }
+
+      </script>
+
+
+{% endblock %}

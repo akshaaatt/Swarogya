@@ -1,0 +1,100 @@
+{% extends 'dashboard_final/dashboard_edit.html' %}
+{% load static %} 
+{% block content %}
+
+<div class="card card-nav-tabs card-plain">
+  <div class="card-body">
+    <div class="tab-content text-center">
+      <div class="tab-pane active" id="home">
+        <form
+          action="{% url 'swarogya_web:report_analysis' %}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group label-floating">
+                <label class="control-label">Hospital Name</label>
+                <input
+                  id="hospital_name"
+                  name="hospital_name"
+                  type="text"
+                  class="form-control"
+                  value="{{hospitalName}}"
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm offset-1">
+              <label class="control-label">Upload BloodCell Test</label>
+              <input type="file" id="bloodcell" name="bloodcell" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm offset-1">
+              <label class="control-label">Upload Cataract Report</label>
+              <input type="file" id="cataract" name="cataract" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm offset-1">
+              <label class="control-label">Upload Corona Report</label>
+              <input type="file" id="corona" name="corona" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm offset-1">
+              <label class="control-label">Upload Leukemia Report</label>
+              <input type="file" id="leukemia" name="leukemia" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm offset-1">
+              <label class="control-label">Upload Pneumonia Report</label>
+              <input type="file" id="pneumonia" name="pneumonia" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-10 col-sm offset-1">
+              <label class="control-label">Upload HeadCT Report</label>
+              <input type="file" id="headct" name="headct" />
+            </div>
+          </div>
+          <br />
+          <div class="row">
+            <div class="col-sm-10 col-sm offset-1">
+              <button
+                type="submit"
+                class="btn btn-primary pull-right"
+              >
+                Analyse
+              </button>
+            </div>
+          </div>
+          {% if submitted %}
+          <div>
+            <h3>HeadCT Result: {{headct_result}}</h3>
+            <h3>Pneumonia Result: {{pneumonia_result}}</h3>
+            <h3>Leukemia Result: {{leukemia_result}}</h3>
+            <h3>Corona Result: {{corona_result}}</h3>
+            <h3>Bloodcell Result: {{bloodcell_result}}</h3>
+            <h3>Cataract Result: {{cataract_result}}</h3>
+          </div>
+          {% endif %}
+
+          <script type="text/javascript">
+            function myOpenFunction() {
+              document.getElementById("report_analysis_nav").className =
+                "nav-item active";
+            }
+          </script>
+
+          {% endblock %}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

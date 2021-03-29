@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+	<title>Swarogya</title>
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+
+	<div class="limiter">
+			<div class="container-login100">
+				<div class="wrap-login100">
+					<div class="login100-form-title" style="background-image: url('{% static 'img/my_hospital.jpeg' %}');  width: 100%;height: 250px; text-align: center;;">
+						<span class="login100-form-title-1" style="margin: 30px ;">
+							Hospital Login
+						</span>
+					</div>
+
+					<form class="login100-form validate-form" name="myForm"action="javascript:;" onsubmit="login()">
+
+
+						<div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
+							<span class="label-input100">Admin Login Email ID</span>
+							<input class="input100" type="email" name="emailId" id="emailId"placeholder="Enter Email" autocomplete="on" required>
+							<span class="focus-input100"></span>
+						</div>
+
+
+						<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+							<span class="label-input100">Password</span>
+							<input class="input100" type="password"  name="password_field" id="password_field" placeholder="Enter password" autocomplete="on" required>
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input m-b-18" data-validate = "Hospital Name is required">
+							<span class="label-input100">Hospital Name</span>
+							<input class="input100" type="text"  name="hospitalName" id="hospitalName" placeholder="Enter Name" required>
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input m-b-18" data-validate = "Hospital Address is required">
+							<span class="label-input100">Hospital Address</span>
+							<input class="input100" type="text" name="hospitalAddress" id="hospitalAddress" placeholder="Enter Address" required>
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
+							<span class="label-input100">Email</span>
+							<input class="input100" type="email" name="email_field" id="email_field"placeholder="Enter Email" autocomplete="on" required>
+							<span class="focus-input100"></span>
+						</div>
+
+						<div class="wrap-input100 validate-input m-b-26" data-validate="phone Number is required">
+							<span class="label-input100">Phone Number</span>
+							<input class="input100" type="number" name="phone_no" id="phone_no"placeholder="Enter Phone Number" autocomplete="on" required>
+							<span class="focus-input100"></span>
+						</div>
+
+						<br>
+						<center>
+							<button onclick="submit_db()"class="login100-form-btn" type="submit" style="color:white;width: 200px;background-color:#006699;box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);margin:0px 0px;">
+								Submit
+							</button>
+					</center>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'js/main.js' %}"></script>
+
+
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+	  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+	  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+
+	  <!-- TODO: Add SDKs for Firebase products that you want to use
+	       https://firebase.google.com/docs/web/setup#available-libraries -->
+	  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+	  <script>
+
+	    // Your web app's Firebase configuration
+			var firebaseConfig = {
+		    apiKey: "AIzaSyCQ3q94q3HSYsrc8TvvQcgysw5Y7YFRMqg",
+		    authDomain: "swarogya-aa30d.firebaseapp.com",
+		    databaseURL: "https://swarogya-aa30d.firebaseio.com",
+		    projectId: "swarogya-aa30d",
+		    storageBucket: "swarogya-aa30d.appspot.com",
+		    messagingSenderId: "819552361415",
+		    appId: "1:819552361415:web:5c22d654f938c1403697e2",
+		    measurementId: "G-3MEWE6QZGV"
+		  };
+	    // Initialize Firebase
+	    firebase.initializeApp(firebaseConfig);
+	    firebase.analytics();
+			var db = firebase.firestore();
+			function submit_db(){
+				var userEmail = document.getElementById("emailId").value;
+				var userPass = document.getElementById("password_field").value;
+
+				firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+					// Handle Errors here.
+					var errorCode = error.code;
+					var errorMessage = error.message;
+
+					if (errorCode === 'auth/wrong-password') {
+							window.alert('Wrong password.');
+						} else {
+							window.alert(errorMessage);
+						}
+				});
+			}
+
+</script>
+	<script>
+	firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+							db.collection("Hospitals").add({
+									name : document.getElementById('hospitalName').value,
+									emailId : document.getElementById('email_field').value,
+									phoneNumber : document.getElementById('phone_no').value,
+									address : document.getElementById('hospitalAddress').value,
+								})
+								.then(function(docRef) {
+								    console.log("Document written with ID: ", docRef.id);
+
+											var pass = '';
+											var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+															'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+
+											for (i = 1; i <= 8; i++) {
+													var char = Math.floor(Math.random()
+																			* str.length + 1);
+
+													pass += str.charAt(char)
+											}
+
+												firebase.auth().createUserWithEmailAndPassword(document.getElementById('email_field').value, pass).catch(function(error) {
+											  // Handle Errors here.
+											  var errorCode = error.code;
+											  var errorMessage = error.message;
+											  // ...
+											}).then(() => {
+										firebase.auth().sendPasswordResetEmail(document.getElementById('email_field').value)
+															 .then(() => {
+																alert('Password reset email sent, check your inbox.');
+															 }).catch((error) => {
+																 alert(error)
+															 })	;								 }).catch((error) => {
+									 										 alert(error)
+									 									 });
+										firebase.auth().signOut();
+								})
+								.catch(function(error) {
+								    console.error("Error adding document: ", error);
+										alert(error);
+								});
+
+
+    }
+
+  } else {
+  }
+});
+
+</script>
+
+
+</body>
+</html>

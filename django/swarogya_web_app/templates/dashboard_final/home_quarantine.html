@@ -1,0 +1,131 @@
+{% extends 'dashboard_final/dashboard_edit.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="card card-nav-tabs card-plain">
+    <div class="card-header card-header-info">
+        <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+        <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+                <ul class="nav nav-tabs" data-tabs="tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home" data-toggle="tab">Date-Wise Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#updates" data-toggle="tab">Week-Wise Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#history" data-toggle="tab">Month-Wise Analysis</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="card-body ">
+        <div class="tab-content text-center">
+            <div class="tab-pane active" id="home">
+              <form action="{% url 'swarogya_web:home_quarantine' %}"  method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Hospital Name</label>
+                      <input id="hospital_name" name="hospital_name" type="text" class="form-control"  value="{{hospitalName}}" disabled>
+                    </div>
+
+                  </div>
+                </div>
+              <div class="row">
+                <div class="col-sm-10 col-sm offset-1">
+
+                <label class="control-label">Date</label>
+                <input type="date" id="date" name="date"required>
+                </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-sm-10 col-sm offset-1">
+              <button type="submit" class="btn btn-primary pull-right" id="Date-Wise-Analysis" name="Date-Wise-Analysis">Generate  Date-Wise Report</button>
+            </div></div>
+            </form>
+            </div>
+            <div class="tab-pane" id="updates">
+              <form action="{% url 'swarogya_web:home_quarantine' %}"  method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="form-row">
+                  <div class="col">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Hospital Name</label>
+                      <input id="hospital_name" name="hospital_name" type="text" class="form-control"  value="{{hospitalName}}" disabled>
+                    </div>
+
+                  </div>
+                </div>
+              <div class="row">
+                <div class="col-sm-10 col-sm offset-1">
+                <label class="control-label">Week</label>
+                <input type="week" id="week" name="week"required>
+                </div></div><br>
+                <div class="row">
+                  <div class="col-sm-10 col-sm offset-1">
+                <button type="submit" class="btn btn-primary pull-right" id="Week-Wise-Analysis" name="Week-Wise-Analysis">Generate Week-Wise Report</button>
+                </div></div>
+                </form>
+            </div>
+            <div class="tab-pane" id="history">
+              <form action="{% url 'swarogya_web:home_quarantine' %}"  method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                <div class="form-row">
+
+                  <div class="col-sm-10 col-sm offset-1">
+                    <div class="form-group label-floating">
+                      <label class="control-label">Hospital Name</label>
+                      <input id="hospital_name" name="hospital_name" type="text" class="form-control"  value="{{hospitalName}}" disabled>
+                    </div>
+                </div>
+                </div>
+              <div class="row">
+                <div class="col-sm-10 col-sm offset-1">
+                  <label class="control-label">Month</label>
+                  <input type="month" id="month" name="month"required>
+                  </div></div><br>
+                  <div class="row">
+                    <div class="col-sm-10 col-sm offset-1">
+              <button type="submit" class="btn btn-primary" id="Month-Wise-Analysis" name="Month-Wise-Analysis">Generate Month-Wise Report</button>
+              </div></div>
+
+                    </form>
+        </div>
+
+        <h3 id="display_thing" name="display_thing">  <b>{{to_display}}</b><br></h3>
+        <h3 id="todisplay" name="todisplay" style="display:none">
+        <button class="btn btn-primary pull-right" id="Mines" name="Mine" onclick="open_excel()">Open File</button>
+        </h3>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    function open_excel(){
+
+      window.open("/media/report.xlsx")
+    }
+
+    var display = document.getElementById('display_thing').innerText;
+    if(display.includes('Generated')){
+      document.getElementById("todisplay").style.display = "block";
+    }
+    else {
+      document.getElementById("todisplay").style.display = "none";
+    }
+
+  </script>
+  <script type="text/javascript">
+    function myOpenFunction(){
+      document.getElementById("home_quarantine_nav").className = "nav-item active";
+    }
+  </script>
+
+{% endblock %}
