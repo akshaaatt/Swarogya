@@ -9,18 +9,19 @@
 - Enable Phone Authentication, Firestore and Storage on the Firebase console.
 - Use the ```gradlew build``` command to build the project directly or use the IDE to run the project to your phone or the emulator.
 
-## Angular App Installation Guide
+## [Angular App](https://www.swarogya.com) Installation Guide
 
 - First start with installing node and the angular cli on your pc.
 - Start the terminal in angular directory and run commands in the following order.
-```git clone https://github.com/akshaaatt/Swarogya-GDSC-Solution-Challenge-2021.git
+```
+git clone https://github.com/akshaaatt/Swarogya-GDSC-Solution-Challenge-2021.git
 cd angular
 npm install
 npm start
 ```
 - Now browse to the app at localhost:8000/index.html
 
-## Django App Installation Guide
+## [Django App](https://app.swarogya.com) Installation Guide
 
 - First start with installing python on your pc.
 - Then run command ```$ pip install virtualenv```.
