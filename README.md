@@ -1,11 +1,19 @@
 # Swarogya-GDSC-Solution-Challenge-2021  
-# androidapp - https://play.google.com/store/apps/details?id=com.swarogya.app
-# webportal - https://www.swarogya.com/
+
+## Android App Installation Guide
+
+- First start with installing Android Studio on your pc.
+- Clone this repository.
+- Add the app to a Firebase project on the Firebase console by using the applicationId value specified in the app/build.gradle file of the app as the Android package name.
+- Download the generated google-services.json file, and copy it to the app/ directory of the app.
+- Enable Phone Authentication, Firestore and Storage on the Firebase console.
+- Use the ```gradlew build``` command to build the project directly or use the IDE to run the project to your phone or the emulator.
+
 ## Django App Installation Guide
 
 - First start with installing python on your pc.
 - Then run command ```$ pip install virtualenv```.
-- Clone the repository https://github.com/akshaaatt/Swarogya-GDSC-Solution-Challenge-2021
+- Clone this repository.
 - Update the valid credentials for the files: 
 1. firebase-sdk.json
 2. Swarogya-36675b238292.json
