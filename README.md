@@ -1,6 +1,6 @@
 # Swarogya-GDSC-Solution-Challenge-2021  
 
-## [Android App](https://play.google.com/store/apps/details?id=com.swarogya.app) Installation Guide
+## [Android App](https://play.google.com/store/apps/details?id=com.swarogya.app){:target="_blank"} Installation Guide
 
 - First start with installing Android Studio on your pc.
 - Clone this repository.
@@ -9,7 +9,7 @@
 - Enable Phone Authentication, Firestore and Storage on the Firebase console.
 - Use the ```gradlew build``` command to build the project directly or use the IDE to run the project to your phone or the emulator.
 
-## [Angular App](https://www.swarogya.com) Installation Guide
+## [Angular App](https://www.swarogya.com){:target="_blank"} Installation Guide
 
 - First start with installing node and the angular cli on your pc.
 - Start the terminal in angular directory and run commands in the following order.
@@ -21,7 +21,7 @@ npm start
 ```
 - Now browse to the app at localhost:8000/index.html
 
-## [Django App](https://app.swarogya.com) Installation Guide
+## [Django App](https://app.swarogya.com){:target="_blank"} Installation Guide
 
 - First start with installing python on your pc.
 - Then run command ```$ pip install virtualenv```.
