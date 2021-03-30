@@ -1,6 +1,6 @@
 # Swarogya-GDSC-Solution-Challenge-2021  
 
-[ic-launcher-playstore.png](https://postimg.cc/0KYmq4NX)
+[![ic-launcher-playstore.png](https://i.postimg.cc/vTjv5Fwy/ic-launcher-playstore.png)](https://postimg.cc/0KYmq4NX)
 
 ## [Android App](https://play.google.com/store/apps/details?id=com.swarogya.app) Installation Guide
 
