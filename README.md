@@ -1,6 +1,6 @@
 # Swarogya - Hospital Management System
 [![Webp-net-resizeimage-2.png](https://i.postimg.cc/DydnJ5KW/Webp-net-resizeimage-2.png)](https://postimg.cc/qzR9Wsq0)
-[![ezgif-com-gif-maker-1.gif](https://i.postimg.cc/pdj1dfr0/ezgif-com-gif-maker-1.gif)](https://postimg.cc/cKsc98QY)
+[![cool.gif](https://i.postimg.cc/gjW6F6BL/cool.gif)](https://postimg.cc/gXg03rpG)
 [![Websitevideo.gif](https://i.postimg.cc/QxkBP8wd/Websitevideo.gif)](https://postimg.cc/F7zsk4hM)
 
 ## [Android App](https://play.google.com/store/apps/details?id=com.swarogya.app) Installation Guide
