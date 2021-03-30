@@ -1,5 +1,7 @@
 # Swarogya-GDSC-Solution-Challenge-2021  
 
+[ic-launcher-playstore.png](https://postimg.cc/0KYmq4NX)
+
 ## [Android App](https://play.google.com/store/apps/details?id=com.swarogya.app) Installation Guide
 
 - First start with installing Android Studio on your pc.
