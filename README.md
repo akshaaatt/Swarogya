@@ -1,5 +1,5 @@
 # Swarogya - Hospital Management System
-[![Webp-net-resizeimage.png](https://i.postimg.cc/wjKbhdgF/Webp-net-resizeimage.png)](https://postimg.cc/3dBBTVyD)
+[![Webp-net-resizeimage-1.png](https://i.postimg.cc/1tks6jtF/Webp-net-resizeimage-1.png)](https://postimg.cc/DJP9351f)
 [![ezgif-com-gif-maker.gif](https://i.postimg.cc/L6S1fyGL/ezgif-com-gif-maker.gif)](https://postimg.cc/z3dvYkzG)
 [![Websitevideo.gif](https://i.postimg.cc/QxkBP8wd/Websitevideo.gif)](https://postimg.cc/F7zsk4hM)
 
