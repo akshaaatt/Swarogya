@@ -1,5 +1,5 @@
 # Swarogya - Hospital Management System
-[![ic-launcher-playstore.png](https://i.postimg.cc/vTjv5Fwy/ic-launcher-playstore.png)](https://postimg.cc/0KYmq4NX)
+[![Webp-net-resizeimage.png](https://i.postimg.cc/wjKbhdgF/Webp-net-resizeimage.png)](https://postimg.cc/3dBBTVyD)
 [![ezgif-com-gif-maker.gif](https://i.postimg.cc/L6S1fyGL/ezgif-com-gif-maker.gif)](https://postimg.cc/z3dvYkzG)
 [![Websitevideo.gif](https://i.postimg.cc/QxkBP8wd/Websitevideo.gif)](https://postimg.cc/F7zsk4hM)
 
