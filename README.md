@@ -1,6 +1,7 @@
 # Swarogya - Hospital Management System
 [![ic-launcher-playstore.png](https://i.postimg.cc/vTjv5Fwy/ic-launcher-playstore.png)](https://postimg.cc/0KYmq4NX)
-[![Sequence-02-3.gif](https://i.postimg.cc/j59QkxWj/Sequence-02-3.gif)](https://postimg.cc/wyXm1dQK)
+[![Appvideo.gif](https://i.postimg.cc/BbP6MsD4/Appvideo.gif)](https://postimg.cc/9wVCQ6Jn)
+[![Websitevideo.gif](https://i.postimg.cc/59Dq12s5/Websitevideo.gif)](https://postimg.cc/RqQnL45q)
 
 ## [Android App](https://play.google.com/store/apps/details?id=com.swarogya.app) Installation Guide
 
