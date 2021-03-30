@@ -25,7 +25,7 @@ npm start
 ## [Django App](https://app.swarogya.com) Installation Guide
 
 - First start with installing python on your pc.
-- Then run command ```$ pip install virtualenv```.
+- Then run the command ```$ pip install virtualenv```.
 - Clone this repository.
 - Update the valid credentials for the files: 
 1. firebase-sdk.json
@@ -42,6 +42,13 @@ $ env/scripts/activate  on windows
 (env) $ python manage.py createsuperuser
 (env) $ python manage.py runserver
 ```
+## Cloud Functions Guide
+
+- Install the Firebase CLI to your device.
+- Then run the command ```firebase init``` and create a function.
+- Replace the code in index.js with the one present in cloud-functions.js
+- Run the command ```firebase deploy``` to upload the cloud function to firebase.
+
 ## Training the ML models
 
 - Folder jupyter-notebooks contains all the .ipynb notebooks required for training the various ML models.
