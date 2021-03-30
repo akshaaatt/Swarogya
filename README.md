@@ -1,5 +1,7 @@
 # Swarogya - Hospital Management System
 
+[![Sequence-02-3.gif](https://i.postimg.cc/j59QkxWj/Sequence-02-3.gif)](https://postimg.cc/wyXm1dQK)
+
 ## [Android App](https://play.google.com/store/apps/details?id=com.swarogya.app) Installation Guide
 
 - First start with installing Android Studio on your pc.
