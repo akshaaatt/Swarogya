@@ -26,6 +26,7 @@ npm start
 
 ## [Django App](https://app.swarogya.com) Installation Guide
 
+- Login to test the web app at https://app.swarogya.com with credentials - Email: dummy@gmail.com , Password: dummy123
 - First start with installing python on your pc.
 - Then run the command ```$ pip install virtualenv```.
 - Clone this repository.
