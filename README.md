@@ -15,7 +15,7 @@
 ## [Angular App](https://www.swarogya.com) Installation Guide
 
 - First start with installing node and the angular cli on your pc.
-- Start the terminal in angular directory and run commands in the following order.
+- Start the terminal and run commands in the following order.
 ```
 git clone https://github.com/akshaaatt/Swarogya-GDSC-Solution-Challenge-2021.git
 cd angular
