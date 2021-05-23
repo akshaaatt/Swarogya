@@ -17,7 +17,7 @@
 - First start with installing node and the angular cli on your pc.
 - Start the terminal and run commands in the following order.
 ```
-git clone https://github.com/akshaaatt/Swarogya-GDSC-Solution-Challenge-2021.git
+git clone https://github.com/akshaaatt/Swarogya.git
 cd angular
 npm install
 npm start
