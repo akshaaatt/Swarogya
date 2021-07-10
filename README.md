@@ -3,7 +3,7 @@
 [![cool.gif](https://i.postimg.cc/gjW6F6BL/cool.gif)](https://postimg.cc/gXg03rpG)
 [![Websitevideo.gif](https://i.postimg.cc/QxkBP8wd/Websitevideo.gif)](https://postimg.cc/F7zsk4hM)
 
-## [Android App] Installation Guide
+## Android App Installation Guide
 
 - First start with installing Android Studio on your pc.
 - Clone this repository.
@@ -12,7 +12,7 @@
 - Enable Phone Authentication, Firestore and Storage on the Firebase console.
 - Use the ```gradlew build``` command to build the project directly or use the IDE to run the project to your phone or the emulator.
 
-## [Angular App] Installation Guide
+## Angular App Installation Guide
 
 - First start with installing node and the angular cli on your pc.
 - Start the terminal and run commands in the following order.
@@ -24,7 +24,7 @@ npm start
 ```
 - Now browse to the app at localhost:8000/index.html
 
-## [Django App] Installation Guide
+## Django App Installation Guide
 
 - Login to test the web app at https://app.swarogya.com with credentials - Email: dummy@gmail.com , Password: dummy123
 - First start with installing python on your pc.
