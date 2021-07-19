@@ -26,7 +26,7 @@ npm start
 
 ## Django App Installation Guide
 
-- Login to test the web app at https://app.swarogya.com with credentials - Email: dummy@gmail.com , Password: dummy123
+- Login to test the web app at https://swarogya-web.herokuapp.com/staff_login/ with credentials - Email: dummy@gmail.com , Password: dummy123
 - First start with installing python on your pc.
 - Then run the command ```$ pip install virtualenv```.
 - Clone this repository.
