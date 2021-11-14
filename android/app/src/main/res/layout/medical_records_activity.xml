@@ -76,7 +76,7 @@
                 app:lottie_loop="true"
                 app:lottie_rawRes="@raw/medical" />
 
-            <com.swarogya.app.utils.MaterialTextField
+            <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialBPHighTextView"
                     android:padding="8dp"
@@ -102,9 +102,9 @@
                         android:maxLines="1"
                         android:inputType="numberDecimal|numberSigned"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialBPLowTextView"
                     android:padding="8dp"
@@ -129,9 +129,9 @@
                         android:hint="@string/bp_low"
                         android:inputType="numberDecimal|numberSigned"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-            <com.swarogya.app.utils.MaterialTextField
+            <com.aemerse.svarogya.utils.MaterialTextField
                 android:layout_gravity="center"
                 android:id="@+id/materialPulseTextView"
                 android:padding="8dp"
@@ -156,9 +156,9 @@
                     android:hint="@string/pulse_per_minute"
                     android:inputType="numberDecimal|numberSigned"/>
 
-            </com.swarogya.app.utils.MaterialTextField>
+            </com.aemerse.svarogya.utils.MaterialTextField>
 
-            <com.swarogya.app.utils.MaterialTextField
+            <com.aemerse.svarogya.utils.MaterialTextField
                 android:layout_gravity="center"
                 android:id="@+id/materialOxygenTextView"
                 android:padding="8dp"
@@ -183,9 +183,9 @@
                     android:hint="@string/oxygen"
                     android:inputType="numberDecimal|numberSigned"/>
 
-            </com.swarogya.app.utils.MaterialTextField>
+            </com.aemerse.svarogya.utils.MaterialTextField>
 
-            <com.swarogya.app.utils.MaterialTextField
+            <com.aemerse.svarogya.utils.MaterialTextField
                 android:layout_gravity="center"
                 android:id="@+id/materialTemperatureTextView"
                 android:padding="8dp"
@@ -210,7 +210,7 @@
                     android:hint="@string/temperature"
                     android:inputType="numberDecimal|numberSigned"/>
 
-            </com.swarogya.app.utils.MaterialTextField>
+            </com.aemerse.svarogya.utils.MaterialTextField>
 
         </LinearLayout>
     </ScrollView>

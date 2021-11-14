@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.swarogya.app">
+    package="com.aemerse.svarogya">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -21,38 +21,38 @@
         android:name="androidx.multidex.MultiDexApplication"
         android:windowSoftInputMode="adjustPan">
 
-        <activity android:name="com.swarogya.app.utils.SelectedImage"
+        <activity android:name="com.aemerse.svarogya.utils.SelectedImage"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.swarogya.app.register_patient.DocumentImages"
+        <activity android:name="com.aemerse.svarogya.register_patient.DocumentImages"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.swarogya.app.register_patient.AddRequiredDocuments"
+        <activity android:name="com.aemerse.svarogya.register_patient.AddRequiredDocuments"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name="com.swarogya.app.home.MedicalRecordsActivity"
+            android:name="com.aemerse.svarogya.home.MedicalRecordsActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.swarogya.app.health_professional.ProfessionalViewActivity"
+            android:name="com.aemerse.svarogya.health_professional.ProfessionalViewActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.swarogya.app.health_professional.HomeHealthProfActivity"
+            android:name="com.aemerse.svarogya.health_professional.HomeHealthProfActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.swarogya.app.profile.ProfileUpdate"
+            android:name="com.aemerse.svarogya.profile.ProfileUpdate"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.swarogya.app.profile.ProfileActivity"
+            android:name="com.aemerse.svarogya.profile.ProfileActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.swarogya.app.home.HomeActivity"
+            android:name="com.aemerse.svarogya.home.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.swarogya.app.starting.Splash"
+            android:name="com.aemerse.svarogya.starting.Splash"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -62,37 +62,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.swarogya.app.starting.RegistrationActivity"
+            android:name="com.aemerse.svarogya.starting.RegistrationActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.swarogya.app.starting.SelfieCameraActivity"
+            android:name="com.aemerse.svarogya.starting.SelfieCameraActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.swarogya.app.register_patient.BarcodeScannerActivity"
+            android:name="com.aemerse.svarogya.register_patient.BarcodeScannerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"/>
 
-        <activity android:name="com.swarogya.app.register_patient.ImageCameraActivity"
+        <activity android:name="com.aemerse.svarogya.register_patient.ImageCameraActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.swarogya.app.health_professional.ListActivity"
+        <activity android:name="com.aemerse.svarogya.health_professional.ListActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
 
-        <activity android:name=".health_professional.PatientsSearch"
+        <activity android:name="com.aemerse.svarogya.health_professional.PatientsSearch"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"/>
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/ad_id" />
-        <meta-data
-            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
-            android:value="true" />
         <meta-data
             android:name="com.google.mlkit.vision.DEPENDENCIES"
             android:value="barcode,face" />
@@ -103,7 +97,7 @@
         <meta-data android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/blue_diff" />
 
-        <receiver android:name="com.swarogya.app.notifications.AlertReceiver" />
+        <receiver android:name="com.aemerse.svarogya.notifications.AlertReceiver" />
     </application>
 
 </manifest>

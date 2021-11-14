@@ -153,7 +153,7 @@
                     android:hint="@string/blood_group"
                     android:textAlignment="center" />
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialNameTextView"
                     android:padding="8dp"
@@ -179,9 +179,9 @@
                         android:maxLines="1"
                         android:inputType="textCapWords|textPersonName"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialAddressTextView"
                     android:padding="8dp"
@@ -206,9 +206,9 @@
                         android:hint="@string/residential_address"
                         android:inputType="textPostalAddress|textCapWords"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:id="@+id/materialEmailTextView"
                     android:padding="8dp"
                     android:layout_width="match_parent"
@@ -234,9 +234,9 @@
                         android:maxLines="1"
                         android:inputType="textEmailAddress"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialFirstEmergencyContactNumberTextView"
                     android:padding="8dp"
@@ -262,9 +262,9 @@
                         android:maxLines="1"
                         android:inputType="phone"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialFirstEmergencyContactNameTextView"
                     android:padding="8dp"
@@ -290,9 +290,9 @@
                         android:maxLines="1"
                         android:inputType="textCapWords|textPersonName"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialSecondEmergencyContactNumberTextView"
                     android:padding="8dp"
@@ -318,9 +318,9 @@
                         android:maxLines="1"
                         android:inputType="phone"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
-                <com.swarogya.app.utils.MaterialTextField
+                <com.aemerse.svarogya.utils.MaterialTextField
                     android:layout_gravity="center"
                     android:id="@+id/materialSecondEmergencyContactNameTextView"
                     android:padding="8dp"
@@ -346,7 +346,7 @@
                         android:maxLines="1"
                         android:inputType="textCapWords|textPersonName"/>
 
-                </com.swarogya.app.utils.MaterialTextField>
+                </com.aemerse.svarogya.utils.MaterialTextField>
 
             </LinearLayout>
         </LinearLayout>

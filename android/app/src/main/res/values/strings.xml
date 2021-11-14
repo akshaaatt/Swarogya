@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Swarogya</string>
+    <string name="app_name">Svarogya</string>
 
     //Google
     <string name="ad_id">ca-app-pub-9621715580326439~3511568747</string>
@@ -69,7 +69,7 @@
     <string name="assistance">Assistance</string>
     <string name="covid_19_updates">Covid-19 UPDATES</string>
     <string name="start_maintaining_your_medical_records">Start maintaining your medical records!</string>
-    <string name="message">Swarogya has been made and managed by Indians. It secures your data preciously and helps you get recovered from your ailment in the best way possible!\n\nThis has been developed by\nAkshat Tiwari and Kuhoo Tiwari.</string>
+    <string name="message">Svarogya has been made and managed by Indians. It secures your data preciously and helps you get recovered from your ailment in the best way possible!\n\nThis has been developed by\nAkshat Tiwari and Kuhoo Tiwari.</string>
     <string name="update_patient_medicines">Update the patient medicines?</string>
     <string name="thank_you_for_your_service">Thank you for your service!</string>
     <string name="scan_patient">Scan Patient</string>
