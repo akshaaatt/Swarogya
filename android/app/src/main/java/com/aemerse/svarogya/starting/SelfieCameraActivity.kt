@@ -92,16 +92,16 @@ class SelfieCameraActivity : AppCompatActivity() {
 
     public override fun onResume() {
         super.onResume()
-        binding.camera!!.open()
+        binding.camera.open()
     }
 
     public override fun onPause() {
         super.onPause()
-        binding.camera!!.close()
+        binding.camera.close()
     }
 
     public override fun onDestroy() {
         super.onDestroy()
-        binding.camera!!.destroy()
+        binding.camera.destroy()
     }
 }

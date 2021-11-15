@@ -127,12 +127,14 @@ class Splash : AppCompatActivity() {
                         .whereEqualTo("phoneNumber",FirebaseAuth.getInstance().currentUser!!.phoneNumber).get()
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                if(task.result!!.size()==0){
+                                if(task.result.size()==0){
                                     loginDialog()
                                     Toast.makeText(applicationContext,"Your phone number is not authenticated to any of the Hospitals",Toast.LENGTH_LONG).show()
                                 }
                                 else{
-                                    professionalLogin(task.result!!.documents[0].id,task.result!!.documents[0].getString("hospitalName"),task.result!!.documents[0].getString("name"))
+                                    professionalLogin(
+                                        task.result.documents[0].id, task.result.documents[0].getString("hospitalName"),
+                                        task.result.documents[0].getString("name"))
                                 }
                             }
                         }

@@ -8,7 +8,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -23,10 +22,6 @@ import com.afollestad.materialdialogs.list.listItemsSingleChoice
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
@@ -98,30 +93,11 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        MobileAds.initialize(this)
-        val mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = getString(R.string.ad_unit_id)
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
-
-        mInterstitialAd.adListener = object : AdListener() {
-            override fun onAdClosed() {
-                // Load the next interstitial.
-                mInterstitialAd.loadAd(AdRequest.Builder().build())
-            }
-        }
         binding.titleText.setOnClickListener {
-            if (mInterstitialAd.isLoaded) {
-                mInterstitialAd.show()
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.")
-            }
+
         }
         binding.imageView.setOnClickListener {
-            if (mInterstitialAd.isLoaded) {
-                mInterstitialAd.show()
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.")
-            }
+
         }
     }
 
@@ -134,7 +110,7 @@ class HomeActivity : AppCompatActivity() {
             .whereEqualTo("phoneNumber",FirebaseAuth.getInstance().currentUser!!.phoneNumber).get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    if(task.result!!.size()==0){
+                    if(task.result.size()==0){
                         binding.progressBar.visibility = GONE
                         binding.startRel.visibility = VISIBLE
                         val alarm = PendingIntent.getBroadcast(this, 0,Intent(this, AlertReceiver::class.java) , PendingIntent.FLAG_NO_CREATE)
@@ -157,7 +133,7 @@ class HomeActivity : AppCompatActivity() {
                         binding.progressBar.visibility = GONE
 
                         val patientIds = ArrayList<String>()
-                        task.result!!.documents.forEachIndexed { index, documentSnapshot ->
+                        task.result.documents.forEachIndexed { index, documentSnapshot ->
                             patientIds.add(documentSnapshot.getString("patientId")!!)
                             if(sharedPreferences.getString(getString(R.string.currentPatientId),null)==documentSnapshot.getString("patientId")){
                                 currentIndex = index
@@ -165,11 +141,11 @@ class HomeActivity : AppCompatActivity() {
                         }
                         if(currentIndex == 0){
                             sharedPreferences.commit {
-                                putString(getString(R.string.currentPatientId), task.result!!.documents[0].getString("patientId"))
+                                putString(getString(R.string.currentPatientId), task.result.documents[0].getString("patientId"))
                             }
                         }
-                        if(task.result!!.documents[currentIndex!!].contains("recordsLastUpdatedOn")) {
-                            val timestamp = task.result!!.documents[currentIndex!!].getTimestamp("recordsLastUpdatedOn")
+                        if(task.result.documents[currentIndex!!].contains("recordsLastUpdatedOn")) {
+                            val timestamp = task.result.documents[currentIndex!!].getTimestamp("recordsLastUpdatedOn")
                             val showDate = SimpleDateFormat("MMMM d, hh:mm a", Locale.getDefault()).format(Date(timestamp!!.seconds * 1000L))
                             binding.lastUpdatedAt.text = getString(R.string.recordsLastUpdate, showDate.toString())
                         }
@@ -180,7 +156,7 @@ class HomeActivity : AppCompatActivity() {
                                 icon(R.drawable.ic_nurse_24dp,null)
                                 positiveButton(R.string.send_alert){
                                     FirebaseFirestore.getInstance().collection("OngoingTreatments")
-                                        .document(task.result!!.documents[currentIndex!!].id).update("needAssistanceAlert",true).addOnSuccessListener {
+                                        .document(task.result.documents[currentIndex!!].id).update("needAssistanceAlert",true).addOnSuccessListener {
                                             toast("Assistance alert sent!")
                                         }
                                         .addOnFailureListener {
@@ -191,7 +167,7 @@ class HomeActivity : AppCompatActivity() {
                                 @Suppress("DEPRECATION")
                                 neutralButton(R.string.emergency){
                                     FirebaseFirestore.getInstance().collection("OngoingTreatments")
-                                        .document(task.result!!.documents[currentIndex!!].id).update("emergencyAlert",true).addOnSuccessListener {
+                                        .document(task.result.documents[currentIndex!!].id).update("emergencyAlert",true).addOnSuccessListener {
                                             toast("Emergency alert sent!")
                                         }
                                         .addOnFailureListener {
@@ -206,16 +182,16 @@ class HomeActivity : AppCompatActivity() {
                         }
                         binding.medicalRecordsButton.setOnClickListener {
                             intent = Intent(applicationContext,MedicalRecordsActivity::class.java)
-                            intent.putExtra("doc",task.result!!.documents[currentIndex!!].id)
+                            intent.putExtra("doc", task.result.documents[currentIndex!!].id)
                             startActivity(intent)
                         }
 
-                        val bedNumber = task.result!!.documents[currentIndex!!].getString("bedNumber")
-                        val roomNumber = task.result!!.documents[currentIndex!!].getString("roomNumber")
-                        val wingNumber = task.result!!.documents[currentIndex!!].getString("wingNumber")
-                        val floorNumber = task.result!!.documents[currentIndex!!].getString("floorNumber")
-                        val treatmentMode = task.result!!.documents[currentIndex!!].getString("treatmentMode")
-                        val hospitalName = task.result!!.documents[currentIndex!!].getString("hospitalName")
+                        val bedNumber = task.result.documents[currentIndex!!].getString("bedNumber")
+                        val roomNumber = task.result.documents[currentIndex!!].getString("roomNumber")
+                        val wingNumber = task.result.documents[currentIndex!!].getString("wingNumber")
+                        val floorNumber = task.result.documents[currentIndex!!].getString("floorNumber")
+                        val treatmentMode = task.result.documents[currentIndex!!].getString("treatmentMode")
+                        val hospitalName = task.result.documents[currentIndex!!].getString("hospitalName")
 
                         binding.generalDetailsButton.setOnClickListener {
                             if(treatmentMode!="Home Care") {
@@ -242,8 +218,8 @@ class HomeActivity : AppCompatActivity() {
                         }
                         binding.medicinesButton.setOnClickListener {
                             var message = ""
-                            if(task.result!!.documents[currentIndex!!].contains("medicines")) {
-                                val medicinesList = task.result!!.documents[currentIndex!!].get("medicines") as ArrayList<String>
+                            if(task.result.documents[currentIndex!!].contains("medicines")) {
+                                val medicinesList = task.result.documents[currentIndex!!].get("medicines") as ArrayList<String>
                                 medicinesList.forEach { s ->
                                     message += s+"\n"
                                 }

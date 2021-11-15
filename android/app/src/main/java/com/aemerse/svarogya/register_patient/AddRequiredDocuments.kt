@@ -210,11 +210,11 @@ class AddRequiredDocuments : AppCompatActivity() {
         FirebaseFirestore.getInstance().collection("OngoingTreatments")
             .whereEqualTo("patientId",patientIdHere).get(Source.SERVER).addOnCompleteListener { task->
                 if (task.isSuccessful) {
-                    if(task.result!!.size()==0){
+                    if(task.result.size()==0){
                         toast("No match found!")
                     }
                     else{
-                        val treatmentDoc = task.result!!.documents[0]
+                        val treatmentDoc = task.result.documents[0]
                         if(!treatmentDoc.contains("hospitalName")){
                             Toast.makeText(applicationContext,"The database is corrupted. Contact the hospital management!",
                                 Toast.LENGTH_LONG).show()

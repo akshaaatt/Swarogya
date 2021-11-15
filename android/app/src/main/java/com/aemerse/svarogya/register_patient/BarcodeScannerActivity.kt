@@ -28,7 +28,6 @@ import com.limerse.mlkit.camera.CameraSource
 import com.limerse.mlkit.camera.CameraSourcePreview
 import com.limerse.mlkit.camera.GraphicOverlay
 import com.limerse.mlkit.camera.WorkflowModel
-import com.limerse.mlkit.settings.SettingsActivity
 import com.aemerse.svarogya.health_professional.ProfessionalViewActivity
 import com.aemerse.svarogya.home.HomeActivity
 import com.aemerse.svarogya.utils.*
@@ -79,10 +78,6 @@ class BarcodeScannerActivity : AppCompatActivity(), OnClickListener {
         flashButton = findViewById<View>(R.id.flash_button).apply {
             setOnClickListener(this@BarcodeScannerActivity)
         }
-        settingsButton = findViewById<View>(R.id.settings_button).apply {
-            setOnClickListener(this@BarcodeScannerActivity)
-            visibility = GONE
-        }
 
         setUpWorkflowModel()
     }
@@ -127,10 +122,6 @@ class BarcodeScannerActivity : AppCompatActivity(), OnClickListener {
                         cameraSource!!.updateFlashMode(Camera.Parameters.FLASH_MODE_TORCH)
                     }
                 }
-            }
-            R.id.settings_button -> {
-                settingsButton?.isEnabled = false
-                startActivity(Intent(this, SettingsActivity::class.java))
             }
         }
     }
@@ -219,12 +210,12 @@ class BarcodeScannerActivity : AppCompatActivity(), OnClickListener {
         FirebaseFirestore.getInstance().collection("OngoingTreatments")
             .whereEqualTo("patientId",patientIdHere).get(Source.SERVER).addOnCompleteListener {task->
                 if (task.isSuccessful) {
-                    if(task.result!!.size()==0){
+                    if(task.result.size()==0){
                         toast("No match found!")
                         finish()
                     }
                     else{
-                        val treatmentDoc = task.result!!.documents[0]
+                        val treatmentDoc = task.result.documents[0]
                         if(!treatmentDoc.contains("hospitalName")){
                             Toast.makeText(applicationContext,"The database is corrupted. Contact the hospital management!",Toast.LENGTH_LONG).show()
                             finish()

@@ -42,7 +42,7 @@ class PatientsSearch : AppCompatActivity(), UserCardAdapter.OnClickListener {
                 .getString(getString(R.string.professionalHospitalName),null))
             .get().addOnSuccessListener {
                 list.clear()
-                it?.forEach { doc->
+                it.forEach { doc->
                     if(doc.get("name")!=null) {
                         list.add(0, doc.toObject(OngoingTreatments::class.java))
                         docIds.add(0, doc.id)
@@ -60,7 +60,7 @@ class PatientsSearch : AppCompatActivity(), UserCardAdapter.OnClickListener {
                         if (newText!!.isEmpty()) {
                             list.clear()
                             docIds.clear()
-                            it?.forEach { doc->
+                            it.forEach { doc->
                                 if(doc.get("name")!=null) {
                                     list.add(0, doc.toObject(OngoingTreatments::class.java))
                                     docIds.add(0, doc.id)
@@ -71,9 +71,13 @@ class PatientsSearch : AppCompatActivity(), UserCardAdapter.OnClickListener {
                         else {
                             list.clear()
                             docIds.clear()
-                            it?.forEach { doc->
+                            it.forEach { doc->
                                 val docHere = doc.toObject(OngoingTreatments::class.java)
-                                if(docHere.name!=null && (docHere.name!!.contains(newText.capitalize(Locale.ROOT)) ||
+                                if(docHere.name!=null && (docHere.name!!.contains(newText.replaceFirstChar {
+                                        if (it.isLowerCase()) it.titlecase(
+                                            Locale.ROOT
+                                        ) else it.toString()
+                                    }) ||
                                             docHere.patientId!!.contains(newText))) {
                                     list.add(docHere)
                                     docIds.add(0, doc.id)

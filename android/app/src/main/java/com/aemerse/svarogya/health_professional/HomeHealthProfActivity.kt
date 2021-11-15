@@ -3,22 +3,17 @@ package com.aemerse.svarogya.health_professional
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.afollestad.materialdialogs.MaterialDialog
-import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
-import com.google.android.gms.ads.AdListener
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.InterstitialAd
-import com.google.android.gms.ads.MobileAds
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.aemerse.svarogya.R
 import com.aemerse.svarogya.databinding.HomeHealthProfActivityBinding
 import com.aemerse.svarogya.register_patient.BarcodeScannerActivity
 import com.aemerse.svarogya.starting.Splash
 import com.aemerse.svarogya.utils.*
+import com.afollestad.materialdialogs.MaterialDialog
+import com.afollestad.materialdialogs.lifecycle.lifecycleOwner
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeHealthProfActivity : AppCompatActivity() {
 
@@ -77,31 +72,11 @@ class HomeHealthProfActivity : AppCompatActivity() {
                 .OnNegativeClicked(object : GifDialog.GifDialogListener { override fun onClick() {} })
                 .build()
         }
-
-        MobileAds.initialize(this)
-        val mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd.adUnitId = getString(R.string.ad_unit_id)
-        mInterstitialAd.loadAd(AdRequest.Builder().build())
-
-        mInterstitialAd.adListener = object : AdListener() {
-            override fun onAdClosed() {
-                // Load the next interstitial.
-                mInterstitialAd.loadAd(AdRequest.Builder().build())
-            }
-        }
         binding.imageView.setOnClickListener {
-            if (mInterstitialAd.isLoaded) {
-                mInterstitialAd.show()
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.")
-            }
+
         }
         binding.titleText.setOnClickListener {
-            if (mInterstitialAd.isLoaded) {
-                mInterstitialAd.show()
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.")
-            }
+
         }
 
     }
