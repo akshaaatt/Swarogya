@@ -1,4 +1,4 @@
-# Swarogya - Medical Management System
+# Swarogya - Hospital Management System
 [![Webp-net-resizeimage-2.png](https://i.postimg.cc/DydnJ5KW/Webp-net-resizeimage-2.png)](https://postimg.cc/qzR9Wsq0)
 [![cool.gif](https://i.postimg.cc/gjW6F6BL/cool.gif)](https://postimg.cc/gXg03rpG)
 [![Websitevideo.gif](https://i.postimg.cc/QxkBP8wd/Websitevideo.gif)](https://postimg.cc/F7zsk4hM)
